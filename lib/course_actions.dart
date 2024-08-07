@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'custom_widgets.dart';
 
 class CourseActionsPage extends StatefulWidget {
   const CourseActionsPage({super.key});
@@ -9,9 +10,14 @@ class CourseActionsPage extends StatefulWidget {
 }
 
 class CourseActionsPageState extends State<CourseActionsPage> {
-  bool _action1Completed = false;
-  bool _action2Completed = false;
-  bool _action3Completed = false;
+  List<bool> isOpen = [false];
+  bool _action0Completed = false;
+  final String _markdownData = '''
+## Course Actions
+- Action 1: Read the course overview
+- Action 2: Complete the first assignment
+- Action 3: Participate in the discussion forum
+''';
 
   @override
   void initState() {
@@ -22,9 +28,7 @@ class CourseActionsPageState extends State<CourseActionsPage> {
   Future<void> _loadCheckboxStates() async {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
-      _action1Completed = prefs.getBool('action1') ?? false;
-      _action2Completed = prefs.getBool('action2') ?? false;
-      _action3Completed = prefs.getBool('action3') ?? false;
+      _action0Completed = prefs.getBool('action0') ?? false;
     });
   }
 
@@ -39,37 +43,25 @@ class CourseActionsPageState extends State<CourseActionsPage> {
       appBar: AppBar(
         title: const Text('Course Actions'),
       ),
-      body: ListView(
-        children: <Widget>[
-          CheckboxListTile(
-            title: const Text('Action 1: Read the course overview'),
-            value: _action1Completed,
-            onChanged: (bool? value) {
+      body: Column(
+        children: [
+          CustomExpansionPanelList(
+            title: 'Action 1: Read the course overview',
+            action: _action0Completed,
+            checkbox: 'action0',
+            isOpen: isOpen[0],
+            onExpansionChanged: (bool isExpanded) {
               setState(() {
-                _action1Completed = value ?? false;
-                _saveCheckboxState('action1', _action1Completed);
+                isOpen[0] = isExpanded;
               });
             },
-          ),
-          CheckboxListTile(
-            title: const Text('Action 2: Complete the first assignment'),
-            value: _action2Completed,
-            onChanged: (bool? value) {
+            onCheckboxChanged: (bool? value) {
               setState(() {
-                _action2Completed = value ?? false;
-                _saveCheckboxState('action2', _action2Completed);
+                _action0Completed = value ?? false;
+                _saveCheckboxState('action0', _action0Completed);
               });
             },
-          ),
-          CheckboxListTile(
-            title: const Text('Action 3: Participate in the discussion forum'),
-            value: _action3Completed,
-            onChanged: (bool? value) {
-              setState(() {
-                _action3Completed = value ?? false;
-                _saveCheckboxState('action3', _action3Completed);
-              });
-            },
+            markdownData: _markdownData,
           ),
         ],
       ),

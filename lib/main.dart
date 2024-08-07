@@ -141,8 +141,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Text(textPopupMenuItem2),
                 ),
               ],
-              icon:
-                  const Icon(iconPopupMenuItem), // where is this icon defined?
+              icon: const Padding(
+                  padding: EdgeInsets.only(left: 8.0),
+                  child:
+                      Icon(iconPopupMenuItem)), // where is this icon defined?
             ),
           ],
         ),
