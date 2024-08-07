@@ -59,7 +59,9 @@ class CourseActionsPageState extends State<CourseActionsPage> {
           child: Column(
             children: [
               CustomExpansionPanelList(
-                title: 'Action 0: Install & Sign up to all the things...',
+                titleAlign: TextAlign.center,
+                title:
+                    'Action 0: Install & Sign up to all the things - Click text to expand; Click checkbox once complete.',
                 action: _action0Completed,
                 checkbox: 'action0',
                 isOpen: isOpen[0],

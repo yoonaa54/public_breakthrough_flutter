@@ -8,18 +8,23 @@ class CustomCheckboxListTile extends StatelessWidget {
   final String title;
   final bool value;
   final ValueChanged<bool?>? onChanged;
+  final TextAlign titleAlign;
 
   const CustomCheckboxListTile({
     super.key,
     required this.title,
     required this.value,
     this.onChanged,
+    this.titleAlign = TextAlign.center,
   });
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(title),
+      title: Text(
+        title,
+        textAlign: titleAlign,
+      ),
       trailing: GestureDetector(
         onTap: () {
           onChanged?.call(!value);
@@ -35,6 +40,7 @@ class CustomCheckboxListTile extends StatelessWidget {
 
 class CustomExpansionPanelList extends StatefulWidget {
   final String title;
+  final TextAlign titleAlign;
   final bool action;
   final String checkbox;
   final bool isOpen;
@@ -55,6 +61,7 @@ class CustomExpansionPanelList extends StatefulWidget {
     required this.markdownData,
     this.buttonCopyContent,
     this.buttonCopyText,
+    this.titleAlign = TextAlign.center,
   });
 
   @override
@@ -77,6 +84,7 @@ class CustomExpansionPanelListState extends State<CustomExpansionPanelList> {
                 widget.onExpansionChanged(!widget.isOpen);
               },
               title: CustomCheckboxListTile(
+                titleAlign: widget.titleAlign,
                 title: widget.title,
                 value: widget.action,
                 onChanged: widget.onCheckboxChanged,
