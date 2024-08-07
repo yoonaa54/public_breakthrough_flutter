@@ -123,14 +123,27 @@ class _MyHomePageState extends State<MyHomePage> {
           // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
           // action in the IDE, or press "p" in the console), to see the
           // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment
+              .start, // use start instead of center to pull to the top
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+            SizedBox(
+                width: 100,
+                height: 100,
+                child: Image.asset('assets/images/BT+Logo+Grey+Colour@2x.png')),
+            Padding(
+              padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height *
+                      0.3), // use MediaQuery to make reactive
+              child: const Text(
+                'You have pushed the button this many times:',
+              ),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: Text(
+                '$_counter',
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
             ),
           ],
         ),
