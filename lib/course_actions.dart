@@ -5,10 +5,10 @@ class CourseActionsPage extends StatefulWidget {
   const CourseActionsPage({super.key});
 
   @override
-  _CourseActionsPageState createState() => _CourseActionsPageState();
+  CourseActionsPageState createState() => CourseActionsPageState();
 }
 
-class _CourseActionsPageState extends State<CourseActionsPage> {
+class CourseActionsPageState extends State<CourseActionsPage> {
   bool _action1Completed = false;
   bool _action2Completed = false;
   bool _action3Completed = false;

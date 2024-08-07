@@ -4,10 +4,10 @@ class CVPage extends StatefulWidget {
   const CVPage({super.key});
 
   @override
-  _CVPageState createState() => _CVPageState();
+  CVPageState createState() => CVPageState();
 }
 
-class _CVPageState extends State<CVPage> {
+class CVPageState extends State<CVPage> {
   final _formKey = GlobalKey<FormState>();
 
   // Controllers for form fields
