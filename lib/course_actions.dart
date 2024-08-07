@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_flutter_app/functions.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'custom_widgets.dart';
 
@@ -12,17 +13,20 @@ class CourseActionsPage extends StatefulWidget {
 class CourseActionsPageState extends State<CourseActionsPage> {
   List<bool> isOpen = [false];
   bool _action0Completed = false;
-  final String _markdownData = '''
-## Course Actions
-- Action 1: Read the course overview
-- Action 2: Complete the first assignment
-- Action 3: Participate in the discussion forum
-''';
+  String courseAction0 = '';
 
   @override
   void initState() {
     super.initState();
     _loadCheckboxStates();
+    _loadMarkdownData();
+  }
+
+  Future<void> _loadMarkdownData() async {
+    var cA0 = await readMarkdownFromAssets('assets/markdown/courseAction0.md');
+    setState(() {
+      courseAction0 = cA0;
+    });
   }
 
   Future<void> _loadCheckboxStates() async {
@@ -39,6 +43,7 @@ class CourseActionsPageState extends State<CourseActionsPage> {
 
   @override
   Widget build(BuildContext context) {
+    _loadMarkdownData();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Course Actions'),
@@ -46,7 +51,7 @@ class CourseActionsPageState extends State<CourseActionsPage> {
       body: Column(
         children: [
           CustomExpansionPanelList(
-            title: 'Action 1: Read the course overview',
+            title: 'Action 0: Read the course overview',
             action: _action0Completed,
             checkbox: 'action0',
             isOpen: isOpen[0],
@@ -61,7 +66,7 @@ class CourseActionsPageState extends State<CourseActionsPage> {
                 _saveCheckboxState('action0', _action0Completed);
               });
             },
-            markdownData: _markdownData,
+            markdownData: courseAction0,
           ),
         ],
       ),

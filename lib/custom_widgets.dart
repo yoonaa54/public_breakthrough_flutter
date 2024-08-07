@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CustomCheckboxListTile extends StatelessWidget {
   final String title;
@@ -80,9 +81,19 @@ class CustomExpansionPanelListState extends State<CustomExpansionPanelList> {
           body: Padding(
             padding: const EdgeInsets.all(8.0),
             child: SizedBox(
-              height: 200,
+              height: MediaQuery.of(context).size.height / 2,
               child: Markdown(
                 data: widget.markdownData,
+                onTapLink: (text, href, title) async {
+                  if (href != null) {
+                    final uri = Uri.parse(href);
+                    if (await canLaunchUrl(uri)) {
+                      await launchUrl(uri);
+                    } else {
+                      throw 'Could not launch $href';
+                    }
+                  }
+                },
               ),
             ),
           ),
