@@ -17,7 +17,7 @@ We need to install some software to be able to complete the course. There are a 
 
 - Download and extract the source code from this repo [https://github.com/thatdogmachine/public_breakthrough_flutter/releases/tag/v0.0.1](https://github.com/thatdogmachine/public_breakthrough_flutter/releases/tag/v0.0.1)
 - Install Nix: [https://nix.dev/install-nix](https://nix.dev/install-nix)
-- `NIXPKGS_ALLOW_UNFREE=1 nix-shell`
+- From a terminal / comand prompt run: NIXPKGS_ALLOW_UNFREE=1 nix-shell - see the button below to copy the text to your Clipboard.
 
 ### Install manually
 
@@ -34,3 +34,8 @@ We need to install some software to be able to complete the course. There are a 
 
 - [https://codeium.com/account/register](https://codeium.com/account/register)
     - You will use a type of artificial intelligence to accelerate your learning & progress
+
+
+
+
+

@@ -78,7 +78,7 @@ class CourseActionsPageState extends State<CourseActionsPage> {
                 },
                 buttonCopyContent: 'NIXPKGS_ALLOW_UNFREE=1 nix-shell',
                 buttonCopyText:
-                    'Copy `NIXPKGS_ALLOW_UNFREE=1 nix-shell` to clipboard',
+                    'Copy `NIXPKGS_ALLOW_UNFREE=1 nix-shell` to Clipboard',
                 markdownData: courseAction0,
               ),
             ],
