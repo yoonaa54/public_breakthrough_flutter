@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:my_flutter_app/variables.dart';
+import 'package:my_flutter_app/variables_constants.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: appPageTitle, // The browser tab name. Where does it come from?
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -29,33 +30,33 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        scaffoldBackgroundColor: Colors.black,
-        textTheme: GoogleFonts.workSansTextTheme(
+        scaffoldBackgroundColor: scaffoldBackgroundColor,
+        textTheme: textTheme(
           Theme.of(context).textTheme.apply(
-                bodyColor: Colors.white,
-                displayColor: Colors.white,
+                bodyColor: textThemeBodyColor,
+                displayColor: textThemeDisplayColor,
               ),
         ),
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.black,
-          brightness: Brightness.dark,
+          seedColor: colorSchemeSeedColor,
+          brightness: colorSchemeBrightness,
         ).copyWith(
-          primary: Colors.black,
-          onPrimary: Colors.white,
-          secondary: Colors.black,
-          onSecondary: Colors.white,
-          error: Colors.red,
-          onError: Colors.white,
-          surface: Colors.black,
-          onSurface: Colors.white,
+          primary: colorSchemePrimary,
+          onPrimary: colorSchemeOnPrimary,
+          secondary: colorSchemeSecondary,
+          onSecondary: colorSchemeOnSecondary,
+          error: colorSchemeError,
+          onError: colorSchemeOnError,
+          surface: colorSchemeSurface,
+          onSurface: colorSchemeOnSurface,
         ),
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
-          backgroundColor: Color.fromARGB(255, 253, 218, 37),
-          foregroundColor: Colors.black,
+          backgroundColor: floatingActionButtonBackgroundColor,
+          foregroundColor: floatingActionButtonForegroundColor,
         ),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: myHomePageTitle),
     );
   }
 }
@@ -72,7 +73,7 @@ class MyHomePage extends StatefulWidget {
   // used by the build method of the State. Fields in a Widget subclass are
   // always marked "final".
 
-  final String title;
+  final RichText title;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -108,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: widget.title,
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
