@@ -14,12 +14,14 @@ class CourseActionsPageState extends State<CourseActionsPage> {
   List<bool> isOpen = [false];
   bool _action0Completed = false;
   String courseAction0 = '';
+  late ScrollController _scrollController;
 
   @override
   void initState() {
     super.initState();
     _loadCheckboxStates();
     _loadMarkdownData();
+    _scrollController = ScrollController();
   }
 
   Future<void> _loadMarkdownData() async {
@@ -43,32 +45,43 @@ class CourseActionsPageState extends State<CourseActionsPage> {
 
   @override
   Widget build(BuildContext context) {
-    _loadMarkdownData();
+    _loadMarkdownData(); // Note: Consider moving this to initState to avoid redundant calls.
     return Scaffold(
       appBar: AppBar(
         title: const Text('Course Actions'),
       ),
-      body: Column(
-        children: [
-          CustomExpansionPanelList(
-            title: 'Action 0: Read the course overview',
-            action: _action0Completed,
-            checkbox: 'action0',
-            isOpen: isOpen[0],
-            onExpansionChanged: (bool isExpanded) {
-              setState(() {
-                isOpen[0] = isExpanded;
-              });
-            },
-            onCheckboxChanged: (bool? value) {
-              setState(() {
-                _action0Completed = value ?? false;
-                _saveCheckboxState('action0', _action0Completed);
-              });
-            },
-            markdownData: courseAction0,
+      body: Scrollbar(
+        controller: _scrollController,
+        thumbVisibility: true,
+        child: SingleChildScrollView(
+          // Wrap with a scrollable widget
+          controller: _scrollController,
+          child: Column(
+            children: [
+              CustomExpansionPanelList(
+                title: 'Action 0: Install & Sign up to all the things...',
+                action: _action0Completed,
+                checkbox: 'action0',
+                isOpen: isOpen[0],
+                onExpansionChanged: (bool isExpanded) {
+                  setState(() {
+                    isOpen[0] = isExpanded;
+                  });
+                },
+                onCheckboxChanged: (bool? value) {
+                  setState(() {
+                    _action0Completed = value ?? false;
+                    _saveCheckboxState('action0', _action0Completed);
+                  });
+                },
+                buttonCopyContent: 'NIXPKGS_ALLOW_UNFREE=1 nix-shell',
+                buttonCopyText:
+                    'Copy `NIXPKGS_ALLOW_UNFREE=1 nix-shell` to clipboard',
+                markdownData: courseAction0,
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

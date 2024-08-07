@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -40,6 +41,8 @@ class CustomExpansionPanelList extends StatefulWidget {
   final Function(bool) onExpansionChanged;
   final Function(bool?) onCheckboxChanged;
   final String markdownData;
+  final String? buttonCopyContent;
+  final String? buttonCopyText;
 
   const CustomExpansionPanelList({
     super.key,
@@ -50,6 +53,8 @@ class CustomExpansionPanelList extends StatefulWidget {
     required this.onExpansionChanged,
     required this.onCheckboxChanged,
     required this.markdownData,
+    this.buttonCopyContent,
+    this.buttonCopyText,
   });
 
   @override
@@ -81,19 +86,52 @@ class CustomExpansionPanelListState extends State<CustomExpansionPanelList> {
           body: Padding(
             padding: const EdgeInsets.all(8.0),
             child: SizedBox(
-              height: MediaQuery.of(context).size.height / 2,
-              child: Markdown(
-                data: widget.markdownData,
-                onTapLink: (text, href, title) async {
-                  if (href != null) {
-                    final uri = Uri.parse(href);
-                    if (await canLaunchUrl(uri)) {
-                      await launchUrl(uri);
-                    } else {
-                      throw 'Could not launch $href';
-                    }
-                  }
-                },
+              height: MediaQuery.of(context).size.height * 0.80,
+              child: Stack(
+                children: [
+                  GestureDetector(
+                    child: Markdown(
+                      data: widget.markdownData,
+                      onTapLink: (text, href, title) async {
+                        if (href != null) {
+                          final uri = Uri.parse(href);
+                          if (await canLaunchUrl(uri)) {
+                            await launchUrl(uri);
+                          } else {
+                            throw 'Could not launch $href';
+                          }
+                        }
+                      },
+                    ),
+                  ),
+                  widget.buttonCopyContent != null &&
+                          widget.buttonCopyText != null
+                      ? Positioned(
+                          bottom: 1.0,
+                          left: 16.0,
+                          right: 16.0,
+                          child: ElevatedButton(
+                            onPressed: () async {
+                              await Clipboard.setData(ClipboardData(
+                                  text: widget.buttonCopyContent.toString()));
+                              if (mounted) {
+                                // TODO: investigate microtask further
+                                Future.microtask(
+                                  () {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                        content: Text('Copied to clipboard!'),
+                                      ),
+                                    );
+                                  },
+                                );
+                              }
+                            },
+                            child: Text(widget.buttonCopyText.toString()),
+                          ),
+                        )
+                      : const SizedBox.shrink(),
+                ],
               ),
             ),
           ),
