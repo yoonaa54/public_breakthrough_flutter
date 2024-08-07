@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: appPageTitle, // The browser tab name. Where does it come from?
+      title: textAppPageTitle, // The browser tab name. Where does it come from?
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -51,8 +51,8 @@ class MyApp extends StatelessWidget {
           onSurface: colorSchemeOnSurface,
         ),
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
-          backgroundColor: floatingActionButtonBackgroundColor,
-          foregroundColor: floatingActionButtonForegroundColor,
+          backgroundColor: colorFloatingActionButtonBackground,
+          foregroundColor: colorFloatingActionButtonForeground,
         ),
         useMaterial3: true,
       ),
@@ -110,6 +110,25 @@ class _MyHomePageState extends State<MyHomePage> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: widget.title,
+        leading: Row(
+          children: [
+            PopupMenuButton<String>(
+              onSelected: (String result) {},
+              itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+                const PopupMenuItem<String>(
+                  value: 'Option1',
+                  child: Text(textPopupMenuItem1),
+                ),
+                const PopupMenuItem<String>(
+                  value: 'Option2',
+                  child: Text(textPopupMenuItem2),
+                ),
+              ],
+              icon:
+                  const Icon(iconPopupMenuItem), // where is this icon defined?
+            ),
+          ],
+        ),
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
@@ -132,16 +151,12 @@ class _MyHomePageState extends State<MyHomePage> {
               .start, // use start instead of center to pull to the top
           children: <Widget>[
             SizedBox(
-                width: 100,
-                height: 100,
-                child: Image.asset('assets/images/BT+Logo+Grey+Colour@2x.png')),
+                width: 100, height: 100, child: Image.asset(imageBranding1)),
             Padding(
               padding: EdgeInsets.only(
                   top: MediaQuery.of(context).size.height *
                       0.3), // use MediaQuery to make reactive
-              child: const Text(
-                'You have pushed the button this many times:',
-              ),
+              child: const Text(textCounterDescription),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 8.0),
@@ -155,7 +170,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
-        tooltip: 'Increment',
+        tooltip: textIncrementCounterToolTip,
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
