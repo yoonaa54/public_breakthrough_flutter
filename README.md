@@ -33,6 +33,13 @@ A new Flutter project for [Breakthrough](https://www.wearebreakthrough.org) cand
     git push -u origin main
 
 
+## Permissions problem for IOS on MacOs
+
+    MY_USER=$(whoami)
+    echo "I am: $MY_USER"
+    sudo rm -rf /Users/$MY_USER/repos/public_breakthrough_flutter/macos/Flutter/
+
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
