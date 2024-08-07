@@ -7,6 +7,8 @@ let
 in
 pkgs.mkShellNoCC {
   buildInputs = with pkgs;[
+    pkgs.git-credential-oauth
+    git
     flutterPackages.v3_22
     # flutterPackages.v3_24 - _23 is currently latest available
   ];
