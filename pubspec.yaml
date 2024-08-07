@@ -30,6 +30,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  # fonts & icons are available from: https://fonts.google.com/icons
+  # but more (some are paid) are available at: https://fontawesome.com/icons
+  # font_awesome_flutter: ^10.7.0
   google_fonts: ^6.2.1
 
 

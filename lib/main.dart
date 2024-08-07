@@ -49,6 +49,10 @@ class MyApp extends StatelessWidget {
           surface: Colors.black,
           onSurface: Colors.white,
         ),
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(
+          backgroundColor: Color.fromARGB(255, 253, 218, 37),
+          foregroundColor: Colors.black,
+        ),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
