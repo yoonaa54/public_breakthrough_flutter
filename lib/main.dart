@@ -52,6 +52,12 @@ class MyApp extends StatelessWidget {
           surface: colorSchemeSurface,
           onSurface: colorSchemeOnSurface,
         ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: colorBrandingColor1,
+            foregroundColor: colorSchemePrimary,
+          ),
+        ),
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
           backgroundColor: colorFloatingActionButtonBackground,
           foregroundColor: colorFloatingActionButtonForeground,
