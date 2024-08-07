@@ -7,11 +7,14 @@ let
 in
 pkgs.mkShellNoCC {
   buildInputs = with pkgs;[
-    pkgs.git-credential-oauth
-    git
-    ruby_3_1
     bundler
     flutterPackages.v3_22
+    git
+    pkgs.git-credential-oauth
+    ruby_3_1
+    vscode
+    vscode-extensions.arrterian.nix-env-selector
+    vscode-extensions.dart-code.flutter
     # flutterPackages.v3_24 - _23 is currently latest available
   ] ++ lib.optionals pkgs.stdenv.isDarwin [
     cocoapods
