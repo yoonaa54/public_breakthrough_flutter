@@ -9,8 +9,12 @@ pkgs.mkShellNoCC {
   buildInputs = with pkgs;[
     pkgs.git-credential-oauth
     git
+    ruby_3_1
+    bundler
     flutterPackages.v3_22
     # flutterPackages.v3_24 - _23 is currently latest available
+  ] ++ lib.optionals pkgs.stdenv.isDarwin [
+    cocoapods
   ];
   shellHook = ''
     # make sure `pub global` commands are reachable:
