@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:my_flutter_app/course_actions.dart';
+import 'package:my_flutter_app/cv.dart';
 import 'package:my_flutter_app/variables.dart';
 import 'package:my_flutter_app/variables_constants.dart';
 
@@ -113,7 +115,22 @@ class _MyHomePageState extends State<MyHomePage> {
         leading: Row(
           children: [
             PopupMenuButton<String>(
-              onSelected: (String result) {},
+              onSelected: (String result) {
+                switch (result) {
+                  case 'Option1':
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const CourseActionsPage()));
+                    break;
+                  case 'Option2':
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const CVPage()));
+                    break;
+                }
+              },
               itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
                 const PopupMenuItem<String>(
                   value: 'Option1',
