@@ -11,7 +11,7 @@ We need to install some software to be able to complete the course. There are a 
     - May take more time
     - Needs more attention to detail
 
-Which do you choose?
+## Which do you choose?
 
 ### Nix
 
@@ -21,4 +21,16 @@ Which do you choose?
 
 ### Install manually
 
-- 
+- git
+- Flutter
+- VSCode & Extensions:
+    - Codium
+    - Flutter
+
+## Subscribe to (free) services
+
+- [https://github.com/signup](https://github.com/signup)
+    - You will store your code, and host the CV app you build here
+
+- [https://codeium.com/account/register](https://codeium.com/account/register)
+    - You will use a type of artificial intelligence to accelerate your learning & progress
