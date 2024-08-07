@@ -1,8 +1,8 @@
 # my_flutter_app
 
-A new Flutter project.
+A new Flutter project for [Breakthrough](https://www.wearebreakthrough.org) candidates
 
-## steps used to create
+## Steps used to create
 
     flutter create public_breakthrough_flutter --project-name my_flutter_app                                                                             3:35:39 
     Developer identity "Apple Development: ewan.nisbet@outlook.com (5Y782MYFMX)" selected for iOS code signing
@@ -23,6 +23,14 @@ A new Flutter project.
     $ flutter run
 
     Your application code is in public_breakthrough_flutter/lib/main.dart.
+
+## Steps used to push to empty github repo
+
+    git add .
+    [public_breakthrough_flutter] git commit -m "first commit"
+    git branch -M main
+    git remote add origin https://github.com/thatdogmachine/public_breakthrough_flutter.git
+    git push -u origin main
 
 
 ## Getting Started
