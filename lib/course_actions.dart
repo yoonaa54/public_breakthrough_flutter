@@ -20,47 +20,51 @@ class CourseActionsPageState extends State<CourseActionsPage> {
     'assets/markdown/courseAction2.md',
     'assets/markdown/courseAction3.md',
   ];
-  List<String> textCourseActions = List.empty(growable: true);
-  List<String> actionTitles = [
-    'Welcome to the course',
-    'Install & Sign up to all the things',
-    'Check all the things',
-    'Check: is Flutter installed and working?',
-  ];
+  List<String> textOfCourseActions = List.empty(growable: true);
 
-  List<List<String>> buttonCopyContentLists = [
-    ['echo "hello from the terminal"'],
-    ['NIXPKGS_ALLOW_UNFREE=1 nix-shell'],
-    [],
-    [
-      'pwd',
-      'flutter doctor',
-      'flutter create my_first_flutter_app',
-      'cd my_first_flutter_app',
-      'flutter run -d chrome'
-    ],
-  ];
+  Map<String, Map<String, List<String>>> actions = {
+    'Welcome to the course': {
+      'buttonCopyContent': ['echo "hello from the terminal"'],
+      'buttonCopyText': [
+        'Click to copy `echo "hello from the terminal"` to Clipboard'
+      ],
+    },
+    'Install & Sign up to all the things': {
+      'buttonCopyContent': ['NIXPKGS_ALLOW_UNFREE=1 nix-shell'],
+      'buttonCopyText': [
+        'Click to copy `NIXPKGS_ALLOW_UNFREE=1 nix-shell` to Clipboard'
+      ],
+    },
+    'Check all the things': {
+      'buttonCopyContent': [],
+      'buttonCopyText': [],
+    },
+    'Check: is Flutter installed and working?': {
+      'buttonCopyContent': [
+        'pwd',
+        'flutter doctor',
+        'flutter create my_first_flutter_app',
+        'cd my_first_flutter_app',
+        'flutter run -d chrome'
+      ],
+      'buttonCopyText': [
+        'Click to copy `pwd` to Clipboard',
+        'Click to copy `flutter doctor` to Clipboard',
+        'Click to copy `flutter create my_first_flutter_app` to Clipboard',
+        'Click to copy `cd my_first_flutter_app` to Clipboard',
+        'Click to copy `flutter run -d chrome` to Clipboard',
+      ],
+    },
+  };
 
-  List<List<String>> buttonCopyTextLists = [
-    ['Click to copy `echo "hello from the terminal"` to Clipboard'],
-    ['Click to copy `NIXPKGS_ALLOW_UNFREE=1 nix-shell` to Clipboard'],
-    [],
-    [
-      'Click to copy `pwd` to Clipboard',
-      'Click to copy `flutter doctor` to Clipboard',
-      'Click to copy `flutter create my_first_flutter_app` to Clipboard',
-      'Click to copy `cd my_first_flutter_app` to Clipboard',
-      'Click to copy `flutter run -d chrome` to Clipboard',
-    ],
-  ];
   late ScrollController _scrollController;
 
   @override
   void initState() {
-    if (textCourseActions.isEmpty) {
+    if (textOfCourseActions.isEmpty) {
       // To understand these next 3 lines, make them a comment
       // with // and explore what happens
-      textCourseActions = List<String>.filled(assetsCourseActions.length, '');
+      textOfCourseActions = List<String>.filled(assetsCourseActions.length, '');
       actionsCompleted = List<bool>.filled(assetsCourseActions.length, false);
       isOpen = List<bool>.filled(assetsCourseActions.length, false);
     }
@@ -78,7 +82,7 @@ class CourseActionsPageState extends State<CourseActionsPage> {
       try {
         var textCourseAction =
             await readMarkdownFromAssets(assetsCourseActions[i].toString());
-        textCourseActions[i] = textCourseAction;
+        textOfCourseActions[i] = textCourseAction;
       } catch (e) {
         print("Error reading file in readMarkdownFromAssets: $e");
       }
@@ -109,21 +113,26 @@ class CourseActionsPageState extends State<CourseActionsPage> {
         controller: _scrollController,
         thumbVisibility: true,
         child: SingleChildScrollView(
-            controller: _scrollController,
-            child: Column(
-              children: [
-                for (int i = 0; i < assetsCourseActions.length; i++)
-                  _buildCustomExpansionPanelList(
-                    title: 'Action $i:\n${actionTitles[i]}',
-                    action: actionsCompleted[i],
-                    checkbox: 'courseAction$i',
-                    index: i,
-                    markdownData: textCourseActions[i],
-                    buttonCopyContentList: buttonCopyContentLists[i],
-                    buttonCopyTextList: buttonCopyTextLists[i],
-                  ),
-              ],
-            )),
+          controller: _scrollController,
+          child: Column(
+            children: [
+              for (var i = 0; i < actions.entries.length; i++)
+                _buildCustomExpansionPanelList(
+                  title: 'Action $i:\n${actions.entries.elementAt(i).key}',
+                  action: actionsCompleted[i],
+                  checkbox: 'courseAction$i',
+                  index: i,
+                  markdownData: textOfCourseActions[i],
+                  buttonCopyContentList:
+                      actions.entries.elementAt(i).value['buttonCopyContent'] ??
+                          [],
+                  buttonCopyTextList:
+                      actions.entries.elementAt(i).value['buttonCopyText'] ??
+                          [],
+                ),
+            ],
+          ),
+        ),
       ),
     );
   }
