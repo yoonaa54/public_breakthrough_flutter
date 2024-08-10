@@ -103,10 +103,18 @@ class CustomExpansionPanelListState extends State<CustomExpansionPanelList> {
                   children: [
                     GestureDetector(
                       child: Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: MediaQuery.of(context).size.width > 1400
-                                ? MediaQuery.of(context).size.width * 0.24
-                                : 4.0),
+                        padding: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width > 1400
+                              ? MediaQuery.of(context).size.width * 0.24
+                              : 4.0,
+                          right: MediaQuery.of(context).size.width > 1400
+                              ? MediaQuery.of(context).size.width * 0.24
+                              : 4.0,
+                          bottom: 100.0 *
+                              (widget.buttonCopyTextList?.length ?? 0.2),
+                          // ?? needs to be low or we may not display
+                          // text when there are no buttons
+                        ),
                         child: Markdown(
                           data: widget.markdownData,
                           styleSheet: MarkdownStyleSheet(
