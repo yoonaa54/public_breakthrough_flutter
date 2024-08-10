@@ -21,6 +21,38 @@ class CourseActionsPageState extends State<CourseActionsPage> {
     'assets/markdown/courseAction3.md',
   ];
   List<String> textCourseActions = List.empty(growable: true);
+  List<String> actionTitles = [
+    'Welcome to the course',
+    'Install & Sign up to all the things',
+    'Check all the things',
+    'Check: is Flutter installed and working?',
+  ];
+
+  List<List<String>> buttonCopyContentLists = [
+    ['echo "hello from the terminal"'],
+    ['NIXPKGS_ALLOW_UNFREE=1 nix-shell'],
+    [],
+    [
+      'pwd',
+      'flutter doctor',
+      'flutter create my_first_flutter_app',
+      'cd my_first_flutter_app',
+      'flutter run -d chrome'
+    ],
+  ];
+
+  List<List<String>> buttonCopyTextLists = [
+    ['Click to copy `echo "hello from the terminal"` to Clipboard'],
+    ['Click to copy `NIXPKGS_ALLOW_UNFREE=1 nix-shell` to Clipboard'],
+    [],
+    [
+      'Click to copy `pwd` to Clipboard',
+      'Click to copy `flutter doctor` to Clipboard',
+      'Click to copy `flutter create my_first_flutter_app` to Clipboard',
+      'Click to copy `cd my_first_flutter_app` to Clipboard',
+      'Click to copy `flutter run -d chrome` to Clipboard',
+    ],
+  ];
   late ScrollController _scrollController;
 
   @override
@@ -77,66 +109,21 @@ class CourseActionsPageState extends State<CourseActionsPage> {
         controller: _scrollController,
         thumbVisibility: true,
         child: SingleChildScrollView(
-          controller: _scrollController,
-          child: Column(
-            children: [
-              _buildCustomExpansionPanelList(
-                title: 'Action 0:\n Welcome to the course',
-                action: actionsCompleted[0],
-                checkbox: 'courseAction0',
-                index: 0,
-                markdownData: textCourseActions[0],
-                buttonCopyContentList: [
-                  'echo "hello from the terminal"',
-                ],
-                buttonCopyTextList: [
-                  'Click to copy `echo "hello from the terminal"` to Clipboard',
-                ],
-              ),
-              _buildCustomExpansionPanelList(
-                title: 'Action 1:\nInstall & Sign up to all the things',
-                action: actionsCompleted[1],
-                checkbox: 'courseAction1',
-                index: 1,
-                markdownData: textCourseActions[1],
-                buttonCopyContentList: [
-                  'NIXPKGS_ALLOW_UNFREE=1 nix-shell',
-                ],
-                buttonCopyTextList: [
-                  'Click to copy `NIXPKGS_ALLOW_UNFREE=1 nix-shell` to Clipboard',
-                ],
-              ),
-              _buildCustomExpansionPanelList(
-                title: 'Action 2:\nCheck all the things',
-                action: actionsCompleted[2],
-                checkbox: 'courseAction2',
-                index: 2,
-                markdownData: textCourseActions[2],
-              ),
-              _buildCustomExpansionPanelList(
-                title: 'Action 3:\nCheck: is Flutter installed and working?',
-                action: actionsCompleted[3],
-                checkbox: 'courseAction3',
-                index: 3,
-                markdownData: textCourseActions[3],
-                buttonCopyContentList: [
-                  'pwd',
-                  'flutter doctor',
-                  'flutter create my_first_flutter_app',
-                  'cd my_first_flutter_app',
-                  'flutter run -d chrome'
-                ],
-                buttonCopyTextList: [
-                  'Click to copy `pwd` to Clipboard',
-                  'Click to copy `flutter doctor` to Clipboard',
-                  'Click to copy `flutter create my_first_flutter_app` to Clipboard',
-                  'Click to copy `cd my_first_flutter_app` to Clipboard',
-                  'Click to copy `flutter run -d chrome` to Clipboard',
-                ],
-              ),
-            ],
-          ),
-        ),
+            controller: _scrollController,
+            child: Column(
+              children: [
+                for (int i = 0; i < assetsCourseActions.length; i++)
+                  _buildCustomExpansionPanelList(
+                    title: 'Action $i:\n${actionTitles[i]}',
+                    action: actionsCompleted[i],
+                    checkbox: 'courseAction$i',
+                    index: i,
+                    markdownData: textCourseActions[i],
+                    buttonCopyContentList: buttonCopyContentLists[i],
+                    buttonCopyTextList: buttonCopyTextLists[i],
+                  ),
+              ],
+            )),
       ),
     );
   }
