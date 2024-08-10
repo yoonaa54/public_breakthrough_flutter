@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show PlatformAssetBundle;
 // import 'package:flutter/services.dart' show rootBundle;
 
-Future<String> readMarkdownFromAssets(
-    BuildContext context, String filename) async {
+Future<String> readMarkdownFromAssets(String filename) async {
   try {
     final assetBundle = PlatformAssetBundle();
     // String contents = await rootBundle.loadString(filename, cache: false);
