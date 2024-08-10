@@ -184,8 +184,10 @@ class CustomExpansionPanelListState extends State<CustomExpansionPanelList> {
               Future.microtask(
                 () {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Copied to clipboard!'),
+                    SnackBar(
+                      duration: const Duration(milliseconds: 1800),
+                      content: Text(
+                          '  $buttonCopyContent        was copied to the Clipboard.'),
                     ),
                   );
                 },
