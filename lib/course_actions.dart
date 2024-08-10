@@ -15,6 +15,8 @@ class CourseActionsPageState extends State<CourseActionsPage> {
   List<bool> isOpen = List.empty(growable: true);
   List<bool> actionsCompleted = List.empty(growable: true);
   List<String> assetsCourseActions = [
+    // TODO: this list could be refactored into
+    // mapCourseActions
     'assets/markdown/courseAction0.md',
     'assets/markdown/courseAction1.md',
     'assets/markdown/courseAction2.md',
@@ -22,7 +24,7 @@ class CourseActionsPageState extends State<CourseActionsPage> {
   ];
   List<String> textOfCourseActions = List.empty(growable: true);
 
-  Map<String, Map<String, List<String>>> actions = {
+  Map<String, Map<String, List<String>>> mapCourseActions = {
     'Welcome to the course': {
       'buttonCopyContent': ['echo "hello from the terminal"'],
       'buttonCopyText': [
@@ -116,10 +118,11 @@ class CourseActionsPageState extends State<CourseActionsPage> {
           controller: _scrollController,
           child: Column(
             children: [
-              for (var i = 0; i < actions.entries.length; i++)
+              for (var i = 0; i < mapCourseActions.entries.length; i++)
                 CustomExpansionPanelList(
                   titleAlign: TextAlign.center,
-                  title: 'Action $i:\n${actions.entries.elementAt(i).key}',
+                  title:
+                      'Action $i:\n${mapCourseActions.entries.elementAt(i).key}',
                   action: actionsCompleted[i],
                   checkbox: 'courseAction$i',
                   isOpen: isOpen[i],
@@ -145,12 +148,14 @@ class CourseActionsPageState extends State<CourseActionsPage> {
                       }
                     });
                   },
-                  buttonCopyContentList:
-                      actions.entries.elementAt(i).value['buttonCopyContent'] ??
-                          [],
-                  buttonCopyTextList:
-                      actions.entries.elementAt(i).value['buttonCopyText'] ??
-                          [],
+                  buttonCopyContentList: mapCourseActions.entries
+                          .elementAt(i)
+                          .value['buttonCopyContent'] ??
+                      [],
+                  buttonCopyTextList: mapCourseActions.entries
+                          .elementAt(i)
+                          .value['buttonCopyText'] ??
+                      [],
                   markdownData: textOfCourseActions[i],
                 )
             ],
