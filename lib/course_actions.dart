@@ -44,11 +44,9 @@ class CourseActionsPageState extends State<CourseActionsPage> {
       print(
           'i is: $i and assetsCourseActions[$i] is: ${assetsCourseActions[i]}');
       try {
-        // print('entered _loadMarkdownData try block...');
         var textCourseAction =
             await readMarkdownFromAssets(assetsCourseActions[i].toString());
         textCourseActions[i] = textCourseAction;
-        // print('exiting _loadMarkdownData try block without encountering exceptions');
       } catch (e) {
         print("Error reading file in readMarkdownFromAssets: $e");
       }
@@ -88,6 +86,12 @@ class CourseActionsPageState extends State<CourseActionsPage> {
                 checkbox: 'courseAction0',
                 index: 0,
                 markdownData: textCourseActions[0],
+                buttonCopyContentList: [
+                  'echo "hello from the terminal"',
+                ],
+                buttonCopyTextList: [
+                  'Click to copy `echo "hello from the terminal"` to Clipboard',
+                ],
               ),
               _buildCustomExpansionPanelList(
                 title: 'Action 1:\nInstall & Sign up to all the things',
@@ -116,10 +120,18 @@ class CourseActionsPageState extends State<CourseActionsPage> {
                 index: 3,
                 markdownData: textCourseActions[3],
                 buttonCopyContentList: [
-                  'NIXPKGS_ALLOW_UNFREE=1 nix-shell',
+                  'pwd',
+                  'flutter doctor',
+                  'flutter create my_first_flutter_app',
+                  'cd my_first_flutter_app',
+                  'flutter run -d chrome'
                 ],
                 buttonCopyTextList: [
-                  'Click to copy `NIXPKGS_ALLOW_UNFREE=1 nix-shell` to Clipboard',
+                  'Click to copy `pwd` to Clipboard',
+                  'Click to copy `flutter doctor` to Clipboard',
+                  'Click to copy `flutter create my_first_flutter_app` to Clipboard',
+                  'Click to copy `cd my_first_flutter_app` to Clipboard',
+                  'Click to copy `flutter run -d chrome` to Clipboard',
                 ],
               ),
             ],
@@ -146,6 +158,9 @@ class CourseActionsPageState extends State<CourseActionsPage> {
       isOpen: isOpen[index],
       onExpansionChanged: (bool isExpanded) {
         setState(() {
+          _loadMarkdownData();
+          // reduces hot reload effort on macos
+          // but not on web. Elsewhere untested
           isOpen[index] = isExpanded;
         });
       },

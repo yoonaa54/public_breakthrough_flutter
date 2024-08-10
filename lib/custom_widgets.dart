@@ -132,18 +132,11 @@ class CustomExpansionPanelListState extends State<CustomExpansionPanelList> {
                           widget.buttonCopyContentList?.length ?? 0,
                           (index) => Padding(
                             padding: const EdgeInsets.all(1.0),
-                            child: Positioned(
-                              bottom: 0,
-                              top: 16.0,
-                              left: 16.0,
-                              right: 16.0,
-                              child: clipboardElevatedButton(
-                                context,
-                                buttonCopyContent:
-                                    widget.buttonCopyContentList![index],
-                                buttonCopyText:
-                                    widget.buttonCopyTextList![index],
-                              ),
+                            child: clipboardElevatedButton(
+                              context,
+                              buttonCopyContent:
+                                  widget.buttonCopyContentList![index],
+                              buttonCopyText: widget.buttonCopyTextList![index],
                             ),
                           ),
                         ),
@@ -160,28 +153,34 @@ class CustomExpansionPanelListState extends State<CustomExpansionPanelList> {
     );
   }
 
-  ElevatedButton clipboardElevatedButton(
+  ConstrainedBox clipboardElevatedButton(
     BuildContext context, {
     required String buttonCopyContent,
     required String buttonCopyText,
   }) {
-    return ElevatedButton(
-      onPressed: () async {
-        await Clipboard.setData(ClipboardData(text: buttonCopyContent));
-        if (mounted) {
-          // TODO: investigate microtask further
-          Future.microtask(
-            () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Copied to clipboard!'),
-                ),
+    return ConstrainedBox(
+      constraints: const BoxConstraints(maxWidth: 400),
+      child: SizedBox(
+        width: double.infinity,
+        child: ElevatedButton(
+          onPressed: () async {
+            await Clipboard.setData(ClipboardData(text: buttonCopyContent));
+            if (mounted) {
+              // TODO: investigate microtask further
+              Future.microtask(
+                () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Copied to clipboard!'),
+                    ),
+                  );
+                },
               );
-            },
-          );
-        }
-      },
-      child: Text(textAlign: TextAlign.center, buttonCopyText),
+            }
+          },
+          child: Text(textAlign: TextAlign.center, buttonCopyText),
+        ),
+      ),
     );
   }
 }

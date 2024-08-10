@@ -12,13 +12,19 @@ Some of these actions will contain commands you can / should type into a termina
     echo "hello from the terminal"
 ```
 
+## Basic terminology
+
+`terminal` - you might know this as a command prompt or cmd window or something similar
+
+## Using the terminal with this course
+
 Where such commands are listed, you can either:
 - read & type them to a terminal by hand
 
 or:
 
-- copy them to the clipboard using buttons at the bottom of the page (scroll down if you don't see them)
-- paste them into a terminal, using Ctrl+Shift+V or Cmd+V depending on your operating system
+- copy them to the clipboard using buttons at the bottom of the page (scroll down if you don't see them at the bottom of this page)
+- paste them into a terminal, using `Ctrl+Shift+V` or `Cmd+V` depending on your operating system. If you are more comfortable with the mouse, right-click & `Paste` may be available. 
 
 __Before moving on, bookmark or write down this url, so you can get back here later.__
 
