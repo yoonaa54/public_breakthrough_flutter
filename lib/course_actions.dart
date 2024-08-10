@@ -91,9 +91,9 @@ class CourseActionsPageState extends State<CourseActionsPage> {
                 checkbox: 'courseAction1',
                 index: 1,
                 markdownData: textCourseActions[1],
-                buttonCopyContent:
-                    'NIXPKGS_ALLOW_UNFREE=1 nix-shell && code --install-extension codeium.codeium && code --install-extension dart-code.flutter@3.92.0',
-                buttonCopyText: 'Click to copy commands to Clipboard',
+                buttonCopyContent: 'NIXPKGS_ALLOW_UNFREE=1 nix-shell',
+                buttonCopyText:
+                    'Click to copy `NIXPKGS_ALLOW_UNFREE=1 nix-shell` to Clipboard',
               ),
             ],
           ),
