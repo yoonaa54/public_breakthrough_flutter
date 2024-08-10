@@ -21,6 +21,8 @@ class CourseActionsPageState extends State<CourseActionsPage> {
     'assets/markdown/courseAction1.md',
     'assets/markdown/courseAction2.md',
     'assets/markdown/courseAction3.md',
+    'assets/markdown/courseAction4.md',
+    'assets/markdown/courseAction5.md',
   ];
   List<String> textOfCourseActions = List.empty(growable: true);
 
@@ -56,6 +58,14 @@ class CourseActionsPageState extends State<CourseActionsPage> {
         'Click to copy `cd my_first_flutter_app` to Clipboard',
         'Click to copy `flutter run -d chrome` to Clipboard',
       ],
+    },
+    'Check: are git & GitHub installed, configured and working?': {
+      'buttonCopyContent': [],
+      'buttonCopyText': [],
+    },
+    'Check: is VSCode installed and working?': {
+      'buttonCopyContent': [],
+      'buttonCopyText': [],
     },
   };
 
