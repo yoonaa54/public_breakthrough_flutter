@@ -71,6 +71,9 @@ flutter:
     - assets/images/3D+Rendered+image+of+technology+change.jpeg
     - assets/images/BT+Logo+Grey+Colour@2x.png
     - assets/markdown/courseAction0.md
+    - assets/markdown/courseAction1.md
+    - assets/markdown/courseAction2.md
+    
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
