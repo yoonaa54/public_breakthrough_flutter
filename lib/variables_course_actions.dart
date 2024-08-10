@@ -7,6 +7,7 @@ List<String> assetsCourseActions = [
   'assets/markdown/courseAction3.md',
   'assets/markdown/courseAction4.md',
   'assets/markdown/courseAction5.md',
+  'assets/markdown/courseAction6.md',
 ];
 List<String> textOfCourseActions = List.empty(growable: true);
 
@@ -48,6 +49,10 @@ Map<String, Map<String, List<String>>> mapCourseActions = {
     'buttonCopyText': [],
   },
   'Check: is VSCode installed and working?': {
+    'buttonCopyContent': [],
+    'buttonCopyText': [],
+  },
+  'Exploration: VSCode plugins': {
     'buttonCopyContent': [],
     'buttonCopyText': [],
   },
