@@ -103,16 +103,19 @@ class CustomExpansionPanelListState extends State<CustomExpansionPanelList> {
                   children: [
                     GestureDetector(
                       child: Padding(
-                        padding: EdgeInsets.only(
-                            bottom: (30.0 +
-                                30.0 *
-                                    (widget.buttonCopyContentList?.length ?? 0)
-                                        .toDouble())),
-                        // ask yourself:
-                        // why 30.0 ?
-                        // why * widget.buttonCopyContentList?.length
+                        padding: EdgeInsets.symmetric(
+                            horizontal: MediaQuery.of(context).size.width > 1400
+                                ? MediaQuery.of(context).size.width * 0.24
+                                : 4.0),
                         child: Markdown(
                           data: widget.markdownData,
+                          styleSheet: MarkdownStyleSheet(
+                              // this wasn't very satisfactory
+                              // textAlign: WrapAlignment.spaceAround,
+                              // h1Align: WrapAlignment.spaceAround,
+                              // h2Align: WrapAlignment.spaceAround,
+                              // // unorderedListAlign: WrapAlignment.spaceAround,
+                              ),
                           onTapLink: (text, href, title) async {
                             if (href != null) {
                               final uri = Uri.parse(href);
