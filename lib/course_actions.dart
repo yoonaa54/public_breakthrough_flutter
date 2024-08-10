@@ -81,7 +81,7 @@ class CourseActionsPageState extends State<CourseActionsPage> {
           child: Column(
             children: [
               _buildCustomExpansionPanelList(
-                title: 'Action 0:\n Welcome to the course - Click me!',
+                title: 'Action 0:\n Welcome to the course',
                 action: actionsCompleted[0],
                 checkbox: 'courseAction0',
                 index: 0,

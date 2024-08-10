@@ -21,9 +21,12 @@ class CustomCheckboxListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(
-        title,
-        textAlign: titleAlign,
+      title: Padding(
+        padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * .06),
+        child: Text(
+          title,
+          textAlign: titleAlign,
+        ),
       ),
       trailing: GestureDetector(
         onTap: () {
@@ -74,7 +77,7 @@ class CustomExpansionPanelListState extends State<CustomExpansionPanelList> {
   Widget build(BuildContext context) {
     return ExpansionPanelList(
       expansionCallback: (int index, bool isExpanded) {
-        widget.onExpansionChanged(!isExpanded);
+        widget.onExpansionChanged(!widget.isOpen);
       },
       children: [
         ExpansionPanel(
