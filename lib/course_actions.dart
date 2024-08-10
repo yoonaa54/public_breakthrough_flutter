@@ -117,68 +117,46 @@ class CourseActionsPageState extends State<CourseActionsPage> {
           child: Column(
             children: [
               for (var i = 0; i < actions.entries.length; i++)
-                _buildCustomExpansionPanelList(
+                CustomExpansionPanelList(
+                  titleAlign: TextAlign.center,
                   title: 'Action $i:\n${actions.entries.elementAt(i).key}',
                   action: actionsCompleted[i],
                   checkbox: 'courseAction$i',
-                  index: i,
-                  markdownData: textOfCourseActions[i],
+                  isOpen: isOpen[i],
+                  onExpansionChanged: (bool isExpanded) {
+                    setState(() {
+                      _loadMarkdownData();
+                      // reduces hot reload effort on MacOs
+                      // but not on web. Elsewhere untested
+                      isOpen[i] = isExpanded;
+                    });
+                  },
+                  onCheckboxChanged: (bool? value) {
+                    setState(() {
+                      actionsCompleted[i] = value ?? false;
+                      _saveCheckboxState('courseAction$i', value ?? false);
+                      switch (actionsCompleted[i]) {
+                        case true:
+                          isOpen[i] = false;
+                          break;
+                        case false:
+                          isOpen[i] = true;
+                          break;
+                      }
+                    });
+                  },
                   buttonCopyContentList:
                       actions.entries.elementAt(i).value['buttonCopyContent'] ??
                           [],
                   buttonCopyTextList:
                       actions.entries.elementAt(i).value['buttonCopyText'] ??
                           [],
-                ),
+                  markdownData: textOfCourseActions[i],
+                )
             ],
           ),
         ),
       ),
-    );
-  }
-
-  Widget _buildCustomExpansionPanelList({
-    required String title,
-    required bool action,
-    required String checkbox,
-    required int index,
-    required String markdownData,
-    List<String>? buttonCopyContentList,
-    List<String>? buttonCopyTextList,
-  }) {
-    return CustomExpansionPanelList(
-      titleAlign: TextAlign.center,
-      title: title,
-      action: action,
-      checkbox: checkbox,
-      isOpen: isOpen[index],
-      onExpansionChanged: (bool isExpanded) {
-        setState(() {
-          _loadMarkdownData();
-          // reduces hot reload effort on macos
-          // but not on web. Elsewhere untested
-          isOpen[index] = isExpanded;
-        });
-      },
-      onCheckboxChanged: (bool? value) {
-        setState(
-          () {
-            actionsCompleted[index] = value ?? false;
-            _saveCheckboxState(checkbox, value ?? false);
-            switch (actionsCompleted[index]) {
-              case true:
-                isOpen[index] = false;
-                break;
-              case false:
-                isOpen[index] = true;
-                break;
-            }
-          },
-        );
-      },
-      buttonCopyContentList: buttonCopyContentList,
-      buttonCopyTextList: buttonCopyTextList,
-      markdownData: markdownData,
     );
   }
 }
