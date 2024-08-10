@@ -26,7 +26,7 @@ Map<String, Map<String, List<String>>> mapCourseActions = {
       'Click to copy `NIXPKGS_ALLOW_UNFREE=1 nix-shell` to Clipboard'
     ],
   },
-  'Check all the things': {
+  'Check: all the things': {
     'buttonCopyContent': [],
     'buttonCopyText': [],
   },
