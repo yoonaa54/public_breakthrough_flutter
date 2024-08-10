@@ -12,11 +12,13 @@ class CourseActionsPage extends StatefulWidget {
 }
 
 class CourseActionsPageState extends State<CourseActionsPage> {
-  List<bool> isOpen = [false, false];
-  List<bool> actionsCompleted = [false, false];
+  List<bool> isOpen = List.empty(growable: true);
+  List<bool> actionsCompleted = List.empty(growable: true);
   List<String> assetsCourseActions = [
     'assets/markdown/courseAction0.md',
-    'assets/markdown/courseAction1.md'
+    'assets/markdown/courseAction1.md',
+    'assets/markdown/courseAction2.md',
+    'assets/markdown/courseAction3.md',
   ];
   List<String> textCourseActions = List.empty(growable: true);
   late ScrollController _scrollController;
@@ -24,9 +26,11 @@ class CourseActionsPageState extends State<CourseActionsPage> {
   @override
   void initState() {
     if (textCourseActions.isEmpty) {
-      // To understand this next line, make it a comment
+      // To understand these next 3 lines, make them a comment
       // with // and explore what happens
       textCourseActions = List<String>.filled(assetsCourseActions.length, '');
+      actionsCompleted = List<bool>.filled(assetsCourseActions.length, false);
+      isOpen = List<bool>.filled(assetsCourseActions.length, false);
     }
     super.initState();
     _loadCheckboxStates();
@@ -91,9 +95,32 @@ class CourseActionsPageState extends State<CourseActionsPage> {
                 checkbox: 'courseAction1',
                 index: 1,
                 markdownData: textCourseActions[1],
-                buttonCopyContent: 'NIXPKGS_ALLOW_UNFREE=1 nix-shell',
-                buttonCopyText:
-                    'Click to copy `NIXPKGS_ALLOW_UNFREE=1 nix-shell` to Clipboard',
+                buttonCopyContentList: [
+                  'NIXPKGS_ALLOW_UNFREE=1 nix-shell',
+                ],
+                buttonCopyTextList: [
+                  'Click to copy `NIXPKGS_ALLOW_UNFREE=1 nix-shell` to Clipboard',
+                ],
+              ),
+              _buildCustomExpansionPanelList(
+                title: 'Action 2:\nCheck all the things',
+                action: actionsCompleted[2],
+                checkbox: 'courseAction2',
+                index: 2,
+                markdownData: textCourseActions[2],
+              ),
+              _buildCustomExpansionPanelList(
+                title: 'Action 3:\nCheck: is Flutter installed and working?',
+                action: actionsCompleted[3],
+                checkbox: 'courseAction3',
+                index: 3,
+                markdownData: textCourseActions[3],
+                buttonCopyContentList: [
+                  'NIXPKGS_ALLOW_UNFREE=1 nix-shell',
+                ],
+                buttonCopyTextList: [
+                  'Click to copy `NIXPKGS_ALLOW_UNFREE=1 nix-shell` to Clipboard',
+                ],
               ),
             ],
           ),
@@ -108,8 +135,8 @@ class CourseActionsPageState extends State<CourseActionsPage> {
     required String checkbox,
     required int index,
     required String markdownData,
-    String? buttonCopyContent,
-    String? buttonCopyText,
+    List<String>? buttonCopyContentList,
+    List<String>? buttonCopyTextList,
   }) {
     return CustomExpansionPanelList(
       titleAlign: TextAlign.center,
@@ -138,8 +165,8 @@ class CourseActionsPageState extends State<CourseActionsPage> {
           },
         );
       },
-      buttonCopyContent: buttonCopyContent,
-      buttonCopyText: buttonCopyText,
+      buttonCopyContentList: buttonCopyContentList,
+      buttonCopyTextList: buttonCopyTextList,
       markdownData: markdownData,
     );
   }

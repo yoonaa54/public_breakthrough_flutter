@@ -47,8 +47,8 @@ class CustomExpansionPanelList extends StatefulWidget {
   final Function(bool) onExpansionChanged;
   final Function(bool?) onCheckboxChanged;
   final String markdownData;
-  final String? buttonCopyContent;
-  final String? buttonCopyText;
+  final List<String>? buttonCopyContentList;
+  final List<String>? buttonCopyTextList;
 
   const CustomExpansionPanelList({
     super.key,
@@ -59,8 +59,8 @@ class CustomExpansionPanelList extends StatefulWidget {
     required this.onExpansionChanged,
     required this.onCheckboxChanged,
     required this.markdownData,
-    this.buttonCopyContent,
-    this.buttonCopyText,
+    this.buttonCopyContentList,
+    this.buttonCopyTextList,
     this.titleAlign = TextAlign.center,
   });
 
@@ -100,8 +100,14 @@ class CustomExpansionPanelListState extends State<CustomExpansionPanelList> {
                   children: [
                     GestureDetector(
                       child: Padding(
-                        padding: const EdgeInsets.only(
-                            bottom: 30.0), // ask yourself: why 45.0 ?
+                        padding: EdgeInsets.only(
+                            bottom: (30.0 +
+                                30.0 *
+                                    (widget.buttonCopyContentList?.length ?? 0)
+                                        .toDouble())),
+                        // ask yourself:
+                        // why 30.0 ?
+                        // why * widget.buttonCopyContentList?.length
                         child: Markdown(
                           data: widget.markdownData,
                           onTapLink: (text, href, title) async {
@@ -117,19 +123,32 @@ class CustomExpansionPanelListState extends State<CustomExpansionPanelList> {
                         ),
                       ),
                     ),
-                    widget.buttonCopyContent != null &&
-                            widget.buttonCopyText != null
-                        ? Positioned(
-                            bottom: 0,
-                            left: 16.0,
-                            right: 16.0,
-                            child: clipboardElevatedButton(context,
+                    Positioned(
+                      bottom: 0,
+                      left: 16.0,
+                      right: 16.0,
+                      child: Column(
+                        children: List.generate(
+                          widget.buttonCopyContentList?.length ?? 0,
+                          (index) => Padding(
+                            padding: const EdgeInsets.all(1.0),
+                            child: Positioned(
+                              bottom: 0,
+                              top: 16.0,
+                              left: 16.0,
+                              right: 16.0,
+                              child: clipboardElevatedButton(
+                                context,
                                 buttonCopyContent:
-                                    widget.buttonCopyContent.toString(),
+                                    widget.buttonCopyContentList![index],
                                 buttonCopyText:
-                                    widget.buttonCopyText.toString()),
-                          )
-                        : const SizedBox.shrink(),
+                                    widget.buttonCopyTextList![index],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
