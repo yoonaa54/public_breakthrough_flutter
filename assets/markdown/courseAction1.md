@@ -13,11 +13,11 @@ We need to install some software to be able to complete the course. There are a 
 
 ## Which do you choose?
 
-### Nix
+### Install with Nix
 
 - Download and extract the source code from this repo [https://github.com/thatdogmachine/public_breakthrough_flutter/releases/tag/v0.0.1](https://github.com/thatdogmachine/public_breakthrough_flutter/releases/tag/v0.0.1)
 - Install Nix: [https://nix.dev/install-nix](https://nix.dev/install-nix)
-- From a terminal / comand prompt run: NIXPKGS_ALLOW_UNFREE=1 nix-shell && code --install-extension codeium.codeium && code --install-extension dart-code.flutter@3.92.0 - see the button below to copy the text to your Clipboard.
+- From a terminal / comand prompt run: NIXPKGS_ALLOW_UNFREE=1 nix-shell - see the button below to copy the text to your Clipboard.
 
 ### Install manually
 

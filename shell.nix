@@ -35,6 +35,8 @@ pkgs.mkShellNoCC {
     flutter doctor --verbose
     echo ""
     echo ""
+    code --install-extension codeium.codeium
+    code --install-extension dart-code.flutter@3.92.0
   '';
 }
 
