@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_flutter_app/functions.dart';
+import 'package:my_flutter_app/variables.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'custom_widgets.dart';
 
@@ -11,13 +12,22 @@ class CourseActionsPage extends StatefulWidget {
 }
 
 class CourseActionsPageState extends State<CourseActionsPage> {
-  List<bool> isOpen = [false];
-  bool _action0Completed = false;
-  String courseAction0 = '';
+  List<bool> isOpen = [false, false];
+  List<bool> actionsCompleted = [false, false];
+  List<String> assetsCourseActions = [
+    'assets/markdown/courseAction0.md',
+    'assets/markdown/courseAction1.md'
+  ];
+  List<String> textCourseActions = List.empty(growable: true);
   late ScrollController _scrollController;
 
   @override
   void initState() {
+    if (textCourseActions.isEmpty) {
+      // To understand this next line, make it a comment
+      // with // and explore what happens
+      textCourseActions = List<String>.filled(assetsCourseActions.length, '');
+    }
     super.initState();
     _loadCheckboxStates();
     _loadMarkdownData();
@@ -25,16 +35,28 @@ class CourseActionsPageState extends State<CourseActionsPage> {
   }
 
   Future<void> _loadMarkdownData() async {
-    var cA0 = await readMarkdownFromAssets('assets/markdown/courseAction0.md');
-    setState(() {
-      courseAction0 = cA0;
-    });
+    print('assetsCourseActions length: ${assetsCourseActions.length}');
+    for (int i = 0; i < assetsCourseActions.length; i++) {
+      print(
+          'i is: $i and assetsCourseActions[$i] is: ${assetsCourseActions[i]}');
+      try {
+        // print('entered _loadMarkdownData try block...');
+        var textCourseAction =
+            await readMarkdownFromAssets(assetsCourseActions[i].toString());
+        textCourseActions[i] = textCourseAction;
+        // print('exiting _loadMarkdownData try block without encountering exceptions');
+      } catch (e) {
+        print("Error reading file in readMarkdownFromAssets: $e");
+      }
+    }
   }
 
   Future<void> _loadCheckboxStates() async {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
-      _action0Completed = prefs.getBool('action0') ?? false;
+      for (int i = 0; i < assetsCourseActions.length; i++) {
+        actionsCompleted[i] = prefs.getBool('courseAction$i') ?? false;
+      }
     });
   }
 
@@ -45,46 +67,80 @@ class CourseActionsPageState extends State<CourseActionsPage> {
 
   @override
   Widget build(BuildContext context) {
-    _loadMarkdownData(); // Note: Consider moving this to initState to avoid redundant calls.
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Course Actions'),
+        title: courseActionsPageTitle,
       ),
       body: Scrollbar(
         controller: _scrollController,
         thumbVisibility: true,
         child: SingleChildScrollView(
-          // Wrap with a scrollable widget
           controller: _scrollController,
           child: Column(
             children: [
-              CustomExpansionPanelList(
-                titleAlign: TextAlign.center,
-                title:
-                    'Action 0: Install & Sign up to all the things - Click text to expand; Click checkbox once complete.',
-                action: _action0Completed,
-                checkbox: 'action0',
-                isOpen: isOpen[0],
-                onExpansionChanged: (bool isExpanded) {
-                  setState(() {
-                    isOpen[0] = isExpanded;
-                  });
-                },
-                onCheckboxChanged: (bool? value) {
-                  setState(() {
-                    _action0Completed = value ?? false;
-                    _saveCheckboxState('action0', _action0Completed);
-                  });
-                },
-                buttonCopyContent: 'NIXPKGS_ALLOW_UNFREE=1 nix-shell',
-                buttonCopyText:
-                    'Copy `NIXPKGS_ALLOW_UNFREE=1 nix-shell` to Clipboard',
-                markdownData: courseAction0,
+              _buildCustomExpansionPanelList(
+                title: 'Action 0:\n Welcome to the course - Click me!',
+                action: actionsCompleted[0],
+                checkbox: 'courseAction0',
+                index: 0,
+                markdownData: textCourseActions[0],
+              ),
+              _buildCustomExpansionPanelList(
+                title: 'Action 1:\nInstall & Sign up to all the things',
+                action: actionsCompleted[1],
+                checkbox: 'courseAction1',
+                index: 1,
+                markdownData: textCourseActions[1],
+                buttonCopyContent:
+                    'NIXPKGS_ALLOW_UNFREE=1 nix-shell && code --install-extension codeium.codeium && code --install-extension dart-code.flutter@3.92.0',
+                buttonCopyText: 'Click to copy commands to Clipboard',
               ),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildCustomExpansionPanelList({
+    required String title,
+    required bool action,
+    required String checkbox,
+    required int index,
+    required String markdownData,
+    String? buttonCopyContent,
+    String? buttonCopyText,
+  }) {
+    return CustomExpansionPanelList(
+      titleAlign: TextAlign.center,
+      title: title,
+      action: action,
+      checkbox: checkbox,
+      isOpen: isOpen[index],
+      onExpansionChanged: (bool isExpanded) {
+        setState(() {
+          isOpen[index] = isExpanded;
+        });
+      },
+      onCheckboxChanged: (bool? value) {
+        setState(
+          () {
+            actionsCompleted[index] = value ?? false;
+            _saveCheckboxState(checkbox, value ?? false);
+            switch (actionsCompleted[index]) {
+              case true:
+                isOpen[index] = false;
+                break;
+              case false:
+                isOpen[index] = true;
+                break;
+            }
+          },
+        );
+      },
+      buttonCopyContent: buttonCopyContent,
+      buttonCopyText: buttonCopyText,
+      markdownData: markdownData,
     );
   }
 }

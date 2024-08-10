@@ -93,53 +93,62 @@ class CustomExpansionPanelListState extends State<CustomExpansionPanelList> {
           },
           body: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: SizedBox(
-              height: MediaQuery.of(context).size.height * 0.80,
-              child: Stack(
-                children: [
-                  GestureDetector(
-                    child: Markdown(
-                      data: widget.markdownData,
-                      onTapLink: (text, href, title) async {
-                        if (href != null) {
-                          final uri = Uri.parse(href);
-                          if (await canLaunchUrl(uri)) {
-                            await launchUrl(uri);
-                          } else {
-                            throw 'Could not launch $href';
-                          }
-                        }
-                      },
-                    ),
-                  ),
-                  widget.buttonCopyContent != null &&
-                          widget.buttonCopyText != null
-                      ? Positioned(
-                          bottom: 1.0,
-                          left: 16.0,
-                          right: 16.0,
-                          child: ElevatedButton(
-                            onPressed: () async {
-                              await Clipboard.setData(ClipboardData(
-                                  text: widget.buttonCopyContent.toString()));
-                              if (mounted) {
-                                // TODO: investigate microtask further
-                                Future.microtask(
-                                  () {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                        content: Text('Copied to clipboard!'),
-                                      ),
-                                    );
-                                  },
-                                );
+            child: SingleChildScrollView(
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height * 0.78,
+                child: Stack(
+                  children: [
+                    GestureDetector(
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            bottom: 30.0), // ask yourself: why 45.0 ?
+                        child: Markdown(
+                          data: widget.markdownData,
+                          onTapLink: (text, href, title) async {
+                            if (href != null) {
+                              final uri = Uri.parse(href);
+                              if (await canLaunchUrl(uri)) {
+                                await launchUrl(uri);
+                              } else {
+                                throw 'Could not launch $href';
                               }
-                            },
-                            child: Text(widget.buttonCopyText.toString()),
-                          ),
-                        )
-                      : const SizedBox.shrink(),
-                ],
+                            }
+                          },
+                        ),
+                      ),
+                    ),
+                    widget.buttonCopyContent != null &&
+                            widget.buttonCopyText != null
+                        ? Positioned(
+                            bottom: 0,
+                            left: 16.0,
+                            right: 16.0,
+                            child: ElevatedButton(
+                              onPressed: () async {
+                                await Clipboard.setData(ClipboardData(
+                                    text: widget.buttonCopyContent.toString()));
+                                if (mounted) {
+                                  // TODO: investigate microtask further
+                                  Future.microtask(
+                                    () {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        const SnackBar(
+                                          content: Text('Copied to clipboard!'),
+                                        ),
+                                      );
+                                    },
+                                  );
+                                }
+                              },
+                              child: Text(
+                                  textAlign: TextAlign.center,
+                                  widget.buttonCopyText.toString()),
+                            ),
+                          )
+                        : const SizedBox.shrink(),
+                  ],
+                ),
               ),
             ),
           ),
