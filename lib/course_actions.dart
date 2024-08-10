@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_flutter_app/functions.dart';
 import 'package:my_flutter_app/variables.dart';
+import 'package:my_flutter_app/variables_course_actions.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'custom_widgets.dart';
 
@@ -14,60 +15,6 @@ class CourseActionsPage extends StatefulWidget {
 class CourseActionsPageState extends State<CourseActionsPage> {
   List<bool> isOpen = List.empty(growable: true);
   List<bool> actionsCompleted = List.empty(growable: true);
-  List<String> assetsCourseActions = [
-    // TODO: this list could be refactored into
-    // mapCourseActions
-    'assets/markdown/courseAction0.md',
-    'assets/markdown/courseAction1.md',
-    'assets/markdown/courseAction2.md',
-    'assets/markdown/courseAction3.md',
-    'assets/markdown/courseAction4.md',
-    'assets/markdown/courseAction5.md',
-  ];
-  List<String> textOfCourseActions = List.empty(growable: true);
-
-  Map<String, Map<String, List<String>>> mapCourseActions = {
-    'Welcome to the course': {
-      'buttonCopyContent': ['echo "hello from the terminal"'],
-      'buttonCopyText': [
-        'Click to copy `echo "hello from the terminal"` to Clipboard'
-      ],
-    },
-    'Install & Sign up to all the things': {
-      'buttonCopyContent': ['NIXPKGS_ALLOW_UNFREE=1 nix-shell'],
-      'buttonCopyText': [
-        'Click to copy `NIXPKGS_ALLOW_UNFREE=1 nix-shell` to Clipboard'
-      ],
-    },
-    'Check all the things': {
-      'buttonCopyContent': [],
-      'buttonCopyText': [],
-    },
-    'Check: is Flutter installed and working?': {
-      'buttonCopyContent': [
-        'pwd',
-        'flutter doctor',
-        'flutter create my_first_flutter_app',
-        'cd my_first_flutter_app',
-        'flutter run -d chrome'
-      ],
-      'buttonCopyText': [
-        'Click to copy `pwd` to Clipboard',
-        'Click to copy `flutter doctor` to Clipboard',
-        'Click to copy `flutter create my_first_flutter_app` to Clipboard',
-        'Click to copy `cd my_first_flutter_app` to Clipboard',
-        'Click to copy `flutter run -d chrome` to Clipboard',
-      ],
-    },
-    'Check: are git & GitHub installed, configured and working?': {
-      'buttonCopyContent': [],
-      'buttonCopyText': [],
-    },
-    'Check: is VSCode installed and working?': {
-      'buttonCopyContent': [],
-      'buttonCopyText': [],
-    },
-  };
 
   late ScrollController _scrollController;
 
