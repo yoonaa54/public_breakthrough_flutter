@@ -15,13 +15,15 @@ class CourseActionsPage extends StatefulWidget {
 class CourseActionsPageState extends State<CourseActionsPage> {
   List<bool> isOpen = List.empty(growable: true);
   List<bool> actionsCompleted = List.empty(growable: true);
+  List<String> textOfCourseActions =
+      List.empty(growable: true); // see also: variables_course_actions.dart
 
   late ScrollController _scrollController;
 
   @override
   void initState() {
     if (textOfCourseActions.isEmpty) {
-      // To understand these next 3 lines, make them a comment
+      // TODO: To understand these next 3 lines, make them a comment
       // with // and explore what happens
       textOfCourseActions = List<String>.filled(assetsCourseActions.length, '');
       actionsCompleted = List<bool>.filled(assetsCourseActions.length, false);
@@ -64,6 +66,7 @@ class CourseActionsPageState extends State<CourseActionsPage> {
 
   @override
   Widget build(BuildContext context) {
+    // _loadMarkdownData();
     return Scaffold(
       appBar: AppBar(
         title: courseActionsPageTitle,

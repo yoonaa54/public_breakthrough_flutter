@@ -9,7 +9,9 @@ List<String> assetsCourseActions = [
   'assets/markdown/courseAction5.md',
   'assets/markdown/courseAction6.md',
 ];
-List<String> textOfCourseActions = List.empty(growable: true);
+// TODO: If we define this list here, it changes the behaviour
+// and on second pass we get a RangeError
+// List<String> textOfCourseActions = List.empty(growable: true);
 
 Map<String, Map<String, List<String>>> mapCourseActions = {
   'Welcome to the course': {
