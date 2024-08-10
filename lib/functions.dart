@@ -5,8 +5,7 @@ Future<String> readMarkdownFromAssets(String filename) async {
     String contents = await rootBundle.loadString(filename);
     return contents;
   } catch (e) {
-    // Handle any errors that occur during file reading
-    print("Error reading file: $e");
+    print("Error reading file in readMarkdownFromAssets: $e");
     return '';
   }
 }
