@@ -28,3 +28,31 @@ var myHomePageTitle = RichText(
     ],
   ),
 );
+
+var courseActionsPageTitle = RichText(
+  text: const TextSpan(
+    children: [
+      TextSpan(
+        text: 'break',
+        style: TextStyle(
+            color: colorBrandingColor1,
+            fontWeight: defaultTitleFontWeight,
+            fontSize: defaultTitleFontSize),
+      ),
+      TextSpan(
+        text: 'through ',
+        style: TextStyle(
+            color: colorSchemeOnSurface,
+            fontWeight: defaultTitleFontWeight,
+            fontSize: defaultTitleFontSize),
+      ),
+      TextSpan(
+        text: 'course actions',
+        style: TextStyle(
+            color: colorSchemeOnSurface,
+            fontWeight: defaultTitleFontWeight,
+            fontSize: defaultTitleFontSize),
+      ),
+    ],
+  ),
+);
