@@ -1,20 +1,5 @@
 ## Lets check everything is now installed
 
-Start by opening a command prompt / terminal, then:
+Next we're going to check we have everything installed & working.
 
-### Flutter
-
-flutter
-
-flutter create my_first_flutter_app
-
-
-
-### git
-- command && github && can create & pull repos
-
-
-### VSCode & Extensions
-
-code
-
+Start by opening a command prompt / terminal, then mark this action complete and move on to the next one.

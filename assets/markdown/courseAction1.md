@@ -37,6 +37,8 @@ We need to install some software to be able to complete the course. There are a 
 - [https://codeium.com/account/register](https://codeium.com/account/register)
     - Codeium claims to be the "Free AI-powered code acceleration toolkit"
 
+- [https://calendly.com/signup](https://calendly.com/signup)
+    - You will integrate this Software as a Service (SaaS) to provide a bookable calendar system
 
 
 
