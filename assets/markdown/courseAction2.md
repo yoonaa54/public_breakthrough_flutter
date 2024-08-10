@@ -1,5 +1,14 @@
 ## Lets check everything is now installed
 
-Next we're going to check we have everything installed & working.
+Start by opening a command prompt / terminal.
 
-Start by opening a command prompt / terminal, then mark this action complete and move on to the next one.
+If you installed using nix, make sure you:
+
+```dart
+    NIXPKGS_ALLOW_UNFREE=1 nix-shell
+```
+
+
+inside that terminal.
+
+Then mark this action complete and move on to the next one.

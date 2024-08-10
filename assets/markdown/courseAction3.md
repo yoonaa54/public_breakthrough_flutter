@@ -1,8 +1,9 @@
 ## Flutter
 
-First we'll check that flutter is installed and working
+To check that flutter is installed and working, from a terminal:
 
-flutter
+```dart
+    flutter doctor
 
-flutter create my_first_flutter_app
-
+    flutter create my_first_flutter_app
+```
