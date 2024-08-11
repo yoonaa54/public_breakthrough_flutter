@@ -203,6 +203,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Padding(
                 padding: const EdgeInsets.only(top: 8.0),
                 child: Text(
+                  // TODO: how does this work? how to get the best score?
                   '$_counter',
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
