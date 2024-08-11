@@ -9,6 +9,7 @@ pkgs.mkShellNoCC {
   buildInputs = with pkgs;[
     bundler
     flutterPackages.v3_22
+    # flutterPackages.v3_24 - _23 is currently latest available in nix packages
     git
     gnumake
     pkgs.git-credential-oauth
@@ -16,7 +17,6 @@ pkgs.mkShellNoCC {
     vscode
     vscode-extensions.arrterian.nix-env-selector
     vscode-extensions.dart-code.flutter
-    # flutterPackages.v3_24 - _23 is currently latest available
   ] ++ lib.optionals pkgs.stdenv.isDarwin [
     cocoapods
   ];
