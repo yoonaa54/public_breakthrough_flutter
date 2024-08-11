@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_flutter_app/course_actions.dart';
+import 'package:my_flutter_app/course_activities.dart';
 import 'package:my_flutter_app/cv.dart';
 import 'package:my_flutter_app/variables.dart';
 import 'package:my_flutter_app/variables_constants.dart';
@@ -127,7 +127,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const CourseActionsPage()));
+                            builder: (context) =>
+                                const CourseActivitiesPage()));
                     break;
                   case 'Option2':
                     Navigator.push(

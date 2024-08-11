@@ -1,5 +1,0 @@
-## VSCode & Extensions
-
-```dart
-code
-```

@@ -29,7 +29,7 @@ var myHomePageTitle = RichText(
   ),
 );
 
-var courseActionsPageTitle = RichText(
+var courseActivitiesPageTitle = RichText(
   text: const TextSpan(
     children: [
       TextSpan(
@@ -47,7 +47,7 @@ var courseActionsPageTitle = RichText(
             fontSize: defaultTitleFontSize),
       ),
       TextSpan(
-        text: 'course actions',
+        text: 'course activities',
         style: TextStyle(
             color: colorSchemeOnSurface,
             fontWeight: defaultTitleFontWeight,
