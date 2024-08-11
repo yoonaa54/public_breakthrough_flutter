@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_flutter_app/variables_constants.dart';
+import 'package:my_flutter_app/common/variables_constants.dart';
 
 var myHomePageTitle = RichText(
   text: const TextSpan(

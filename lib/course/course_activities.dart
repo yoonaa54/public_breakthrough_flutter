@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:my_flutter_app/functions.dart';
-import 'package:my_flutter_app/variables.dart';
-import 'package:my_flutter_app/variables_course_activities.dart';
+import 'package:my_flutter_app/common/custom_widgets.dart';
+import 'package:my_flutter_app/common/functions.dart';
+import 'package:my_flutter_app/common/variables.dart';
+import 'package:my_flutter_app/course/variables_course_activities.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
-import 'custom_widgets.dart';
 
 class CourseActivitiesPage extends StatefulWidget {
   const CourseActivitiesPage({super.key});
