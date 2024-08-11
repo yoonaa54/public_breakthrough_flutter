@@ -1,3 +1,29 @@
-## git & Github
-- command && github && can create & pull repos
+## git & GitHub
+
+To complete this activity successfully:
+
+- `git --version` returns something like:
+```dart
+    git version 2.45.2
+```
+
+- Visiting [GitHub.com](https://github.com) will show you as logged in, using the account you created in Activity 1
+
+- You're able to [fork](https://github.com/thatdogmachine/public_breakthrough_flutter) so that you have your own copy of the repo
+
+Once you have successfully created a fork of this repo at [https://github.com/{username}/public_breakthrough_flutter](https://github.com/{username}/public_breakthrough_flutter) you have completed all the mandatory steps in this activity, and can mark it as complete and move on to the next one.
+
+
+## Bonus / Extra activities
+
+1. Investigate the commit history of the [original](https://github.com/thatdogmachine/public_breakthrough_flutter/commits/main/) or your own fork of the repo.
+    - What is this?
+    - Why is it important?
+
+    [GitHub - About commits](https://docs.github.com/en/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/about-commits)
+
+    [Git Basics - Viewing the Commit History](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History)
+
+2. Investigate [Pull Requests (PR's)](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)
+    - Can you propose any PR's that would make these instructions easier to follow?
 

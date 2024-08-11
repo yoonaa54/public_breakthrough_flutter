@@ -33,12 +33,16 @@ We need to install some software to be able to complete the course. There are a 
 
 - [https://github.com/signup](https://github.com/signup)
     - You will store your code, and host the CV app you build here
+    - Create a free account
+    - Make a note of your `username`, which is different from your email address, as you will need it later
 
 - [https://codeium.com/account/register](https://codeium.com/account/register)
     - Codeium claims to be the "Free AI-powered code acceleration toolkit"
+    - Create a free account
 
 - [https://calendly.com/signup](https://calendly.com/signup)
     - You will integrate this Software as a Service (SaaS) to provide a bookable calendar system
+    - Create a free account
 
 
 

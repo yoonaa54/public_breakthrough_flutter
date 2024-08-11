@@ -8,13 +8,14 @@ List<String> assetsCourseActivities = [
   'assets/markdown/courseActivity4.md',
   'assets/markdown/courseActivity5.md',
   'assets/markdown/courseActivity6.md',
+  'assets/markdown/courseActivity7.md',
 ];
 // TODO: If we define this list here, it changes the behaviour
 // and on second pass we get a RangeError
 // List<String> textOfCourseActivities = List.empty(growable: true);
 
 Map<String, Map<String, List<String>>> mapCourseActivities = {
-  'Welcome to the course': {
+  'Welcome to Week 9!': {
     'buttonCopyContent': ['echo "hello from the terminal"'],
     'buttonCopyText': [
       'Click to copy `echo "hello from the terminal"` to Clipboard'
@@ -58,4 +59,8 @@ Map<String, Map<String, List<String>>> mapCourseActivities = {
     'buttonCopyContent': [],
     'buttonCopyText': [],
   },
+  'Implementation: Website Deployment': {
+    'buttonCopyContent': [],
+    'buttonCopyText': [],
+  }
 };

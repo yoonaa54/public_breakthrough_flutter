@@ -21,7 +21,7 @@ Some of these actions will contain commands you can / should type into a termina
 ## Using the terminal with this course
 
 Where such commands are listed, you can either:
-- read & type them to a terminal by hand
+- read & type them to a terminal yourself
 
 or:
 
