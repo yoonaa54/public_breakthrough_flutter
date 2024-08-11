@@ -27,7 +27,7 @@ We need to install some software to be able to complete the course. There are a 
 - VsCode Extensions:
     - Codeium - [https://marketplace.visualstudio.com/items?itemName=Codeium.codeium](https://marketplace.visualstudio.com/items?itemName=Codeium.codeium)
     - Flutter - [https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter](https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter)
-
+- make - [https://gnuwin32.sourceforge.net/packages/make.htm](https://gnuwin32.sourceforge.net/packages/make.htm)
 
 ## Subscribe to (free) services
 

@@ -10,6 +10,7 @@ pkgs.mkShellNoCC {
     bundler
     flutterPackages.v3_22
     git
+    gnumake
     pkgs.git-credential-oauth
     ruby_3_1
     vscode
