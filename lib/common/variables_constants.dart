@@ -24,13 +24,14 @@ const colorFloatingActionButtonForeground = Colors.black;
 const iconPopupMenuItem = Icons
     .menu; // remember from pubspec.yaml we can see icons at: https://fonts.google.com/icons
 const imageBranding1 = 'assets/images/BT+Logo+Grey+Colour@2x.png';
-const scaffoldBackgroundColor = Colors.black;
+const scaffoldBackgroundColor = Colors.black; // background color for the app
 const textAppPageTitle = 'Breakthrough CV Builder';
 const textCounterDescription = 'What`s your high score?';
 const textIncrementCounterToolTip = 'Increment';
 const textPopupMenuItem1 = 'View course instructions';
-const textPopupMenuItem2 = 'View my CV';
-const textPopupMenuItem3 = 'Book me for an interview';
+const textPopupMenuItem2 = 'View my CV - Flutter';
+const textPopupMenuItem3 = 'View my CV - HTML';
+const textPopupMenuItem4 = 'Book me for an interview';
 const textTheme = GoogleFonts.workSansTextTheme;
 const textThemeBodyColor = Colors.white;
 const textThemeDisplayColor = Colors.white;
