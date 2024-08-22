@@ -33,6 +33,7 @@ dependencies:
   # fonts & icons are available from: https://fonts.google.com/icons
   # but more (some are paid) are available at: https://fontawesome.com/icons
   # font_awesome_flutter: ^10.7.0
+  flutter_html_reborn: 3.0.0
   flutter_markdown: ^0.7.3
   google_fonts: ^6.2.1
   path_provider: ^2.1.4
