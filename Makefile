@@ -4,7 +4,7 @@
 
 BASE_HREF = /$(OUTPUT)/
 # Replace this with your GitHub username
-GITHUB_USER = update-with-your-github-username
+GITHUB_USER = ewann
 GITHUB_REPO = https://github.com/$(GITHUB_USER)/$(OUTPUT)
 BUILD_VERSION := $(shell grep 'version:' pubspec.yaml | awk '{print $$2}')
 
@@ -37,6 +37,7 @@ endif
 	@echo "Building for web..."
 	flutter build web --base-href $(BASE_HREF) --release
 
+# TODO: make it possible to retain deploy history in the git repo
 	@echo "Deploying to git repository"
 	cd build/web && \
 	git init && \
