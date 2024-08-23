@@ -1,13 +1,11 @@
 # Calandly integration
 
-Sign up:
+Sign up: at https://calendly.com/signup
 
-https://calendly.com/signup
+Chose `Use on my own` when offered `on my own` vs `teams`
 
-Use on my own
+Click your way through the onboarding / initial setup steps
 
-click through onboarding
+Find your username - is likely firstname-lastname & should be on the https://calendly.com/event_types/user/me page
 
-find your username - is likely firstname-lastname
-
-click the gear icon and click add to website, choose the inline embed, should provide output like:
+Modify `calendlyUserName` in `variabless_constants.dart` to match your username.
