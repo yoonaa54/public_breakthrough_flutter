@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_flutter_app/calendar_booking/calendly.dart';
+import 'package:my_flutter_app/common/functions.dart';
 import 'package:my_flutter_app/common/variables.dart';
 import 'package:my_flutter_app/common/variables_constants.dart';
 import 'package:my_flutter_app/course/course_activities.dart';
@@ -7,6 +8,7 @@ import 'package:my_flutter_app/course/course_activities.dart';
 // import 'package:my_flutter_app/cv/cv.dart';
 import 'package:my_flutter_app/cv/cv_html.dart';
 import 'package:my_flutter_app/cv/cv.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(const MyApp());
@@ -119,6 +121,9 @@ class _MyHomePageState extends State<MyHomePage> {
         leading: Row(
           children: [
             PopupMenuButton<String>(
+              iconColor: colorBrandingColor1,
+              color: Theme.of(context).cardColor,
+              // color: Colors.black,
               onSelected: (String result) {
                 switch (result) {
                   case 'Option1':
@@ -224,20 +229,32 @@ class _MyHomePageState extends State<MyHomePage> {
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.only(top: 24.0, bottom: 24.0),
-                child: SizedBox(
-                  width: 100,
-                  height: 100,
-                  child: Image.asset(imageBranding1),
+                child: GestureDetector(
+                  onTap: () async {
+                    const url = 'https://www.wearebreakthrough.org/';
+                    await launchURL(url);
+                  },
+                  child: SizedBox(
+                    width: 100,
+                    height: 100,
+                    child: Image.asset(imageBranding1),
+                  ),
                 ),
               ),
               Padding(
                 padding: EdgeInsets.only(
                     top: MediaQuery.of(context).size.height * 0.01),
-                child: SizedBox(
-                  width: 600,
-                  height: 600,
-                  child: Image.asset(
-                      'assets/images/3D+Rendered+image+of+technology+change.jpeg'),
+                child: GestureDetector(
+                  onTap: () async {
+                    const url = 'https://www.wearebreakthrough.org/';
+                    await launchURL(url);
+                  },
+                  child: SizedBox(
+                    width: 600,
+                    height: 600,
+                    child: Image.asset(
+                        'assets/images/3D+Rendered+image+of+technology+change.jpeg'),
+                  ),
                 ),
               ),
               Padding(

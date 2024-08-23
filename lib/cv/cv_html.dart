@@ -1,8 +1,8 @@
+import 'package:my_flutter_app/common/functions.dart';
 import 'package:my_flutter_app/cv/cv_html_data.dart';
 import 'package:simple_html_css/simple_html_css.dart';
 
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class CvHtmlPage extends StatefulWidget {
   const CvHtmlPage({super.key});
@@ -33,7 +33,7 @@ class CvHtmlPageState extends State<CvHtmlPage> {
                 text: HTML.toTextSpan(context, htmlContent2,
                     linksCallback: (url) {
                   print('user clicked: $url');
-                  _launchURL(url);
+                  launchURL(url);
                 }),
               );
             },
@@ -41,14 +41,5 @@ class CvHtmlPageState extends State<CvHtmlPage> {
         ],
       ),
     );
-  }
-}
-
-Future<void> _launchURL(String url) async {
-  var targetUrl = Uri.parse(url);
-  if (await canLaunchUrl(targetUrl)) {
-    await launchUrl(targetUrl);
-  } else {
-    throw 'Could not launch $url';
   }
 }

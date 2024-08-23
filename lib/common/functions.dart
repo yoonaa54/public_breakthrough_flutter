@@ -1,4 +1,5 @@
 import 'package:flutter/services.dart' show PlatformAssetBundle;
+import 'package:url_launcher/url_launcher.dart';
 // import 'package:flutter/services.dart' show rootBundle;
 
 Future<String> readMarkdownFromAssets(String filename) async {
@@ -12,5 +13,14 @@ Future<String> readMarkdownFromAssets(String filename) async {
   } catch (e) {
     print("Error reading file in readMarkdownFromAssets: $e");
     return '';
+  }
+}
+
+Future<void> launchURL(String url) async {
+  var targetUrl = Uri.parse(url);
+  if (await canLaunchUrl(targetUrl)) {
+    await launchUrl(targetUrl);
+  } else {
+    throw 'Could not launch $url';
   }
 }
