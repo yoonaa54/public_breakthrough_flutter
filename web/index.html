@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -13,6 +14,7 @@
 
     This is a placeholder for base href that will be replaced by the value of
     the `--base-href` argument provided to `flutter build`.
+    
   -->
   <base href="$FLUTTER_BASE_HREF">
 
@@ -27,12 +29,27 @@
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" href="favicon.png" />
 
   <title>my_flutter_app</title>
   <link rel="manifest" href="manifest.json">
+
+  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
+  <script type="text/javascript">
+    function initCalendlyWidget() {
+      Calendly.initInlineWidget({
+        parentElement: document.getElementById('calendly-container'),
+        prefill: {},
+        utm: {}
+      });
+    }
+    window.initCalendlyWidget = initCalendlyWidget;  // Make it globally available
+  </script>
 </head>
+
 <body>
   <script src="flutter_bootstrap.js" async></script>
+  <div id="calendly-container"></div>
 </body>
+
 </html>

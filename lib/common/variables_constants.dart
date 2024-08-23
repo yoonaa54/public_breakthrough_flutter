@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 // Why do you need to reload the app for const changes to be visible?
+const calendlyUserName = 'ewan-nisbet';
 const colorSchemeSeedColor = Colors.black;
 const colorSchemeBrightness = Brightness.dark;
 const colorSchemePrimary = Colors.black;

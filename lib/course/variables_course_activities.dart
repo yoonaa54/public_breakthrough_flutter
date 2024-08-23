@@ -9,6 +9,8 @@ List<String> assetsCourseActivities = [
   'assets/markdown/courseActivity5.md',
   'assets/markdown/courseActivity6.md',
   'assets/markdown/courseActivity7.md',
+  'assets/markdown/courseActivity8.md',
+  'assets/markdown/courseActivity9.md',
 ];
 // TODO: If we define this list here, it changes the behaviour
 // and on second pass we get a RangeError
@@ -62,5 +64,7 @@ Map<String, Map<String, List<String>>> mapCourseActivities = {
   'Implementation: Website Deployment': {
     'buttonCopyContent': [],
     'buttonCopyText': [],
-  }
+  },
+  'HTML CV creation': {},
+  'Calandly integration': {},
 };

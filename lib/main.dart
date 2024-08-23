@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_flutter_app/calendar_booking/calendly.dart';
 import 'package:my_flutter_app/common/variables.dart';
 import 'package:my_flutter_app/common/variables_constants.dart';
 import 'package:my_flutter_app/course/course_activities.dart';
@@ -144,6 +145,12 @@ class _MyHomePageState extends State<MyHomePage> {
                         MaterialPageRoute(
                             builder: (context) => const CvHtmlPage()));
                     break;
+                  case 'Option4':
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const CalendlyPage()));
+                    break;
                 }
               },
               itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
@@ -159,6 +166,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   value: 'Option3',
                   child: Text(textPopupMenuItem3),
                 ),
+                const PopupMenuItem<String>(
+                  value: 'Option4',
+                  child: Text(textPopupMenuItem4),
+                ),
               ],
               icon: const Padding(
                   padding: EdgeInsets.only(left: 8.0),
@@ -170,7 +181,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       // TODO: if you want to default to a different page, comment out all the "body"
       // section below and replace it with, eg:
-      // body: const CvHtmlPage(),
+      // body: const CalendlyWidget(),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
