@@ -1,6 +1,7 @@
 // import 'package:js/js.dart';
 import 'package:js/js.dart';
 import 'package:flutter/material.dart';
+import 'package:my_flutter_app/common/variables_constants.dart';
 import 'dart:ui_web' as ui;
 import 'package:universal_html/html.dart' as html;
 
@@ -35,11 +36,15 @@ class CalendlyWidgetState extends State<CalendlyWidget> {
   @override
   void initState() {
     super.initState();
-
     ui.platformViewRegistry.registerViewFactory('calendly-html', (int viewId) {
       return html.DivElement()
         ..className = 'calendly-inline-widget'
-        ..dataset = {'url': 'https://calendly.com/ewan-nisbet'}
+        ..dataset = {
+          'url':
+              'https://calendly.com/$calendlyUserName?background_color=1a1a1a&text_color=ffffff&primary_color=ffce00'
+          // TODO: how could these colours be better configured?
+          // Hint: variables_constants.dart
+        }
         ..style.height = '100%'
         ..style.width = '100%'
         ..style.border = 'solid'
@@ -50,12 +55,11 @@ class CalendlyWidgetState extends State<CalendlyWidget> {
             ..async = true,
         );
     });
-    // ignore: undefined_prefixed_name
     ui.platformViewRegistry.registerViewFactory('Calendly', (int viewId) {
       return _element;
     });
     // Trigger the Calendly widget initialization after the element is rendered
-    Future.delayed(const Duration(milliseconds: 500), () {
+    Future.delayed(Duration.zero, () {
       initCalendlyWidget(); // Call the JS function directly
     });
   }
