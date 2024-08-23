@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:my_flutter_app/common/variables_constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class CustomCheckboxListTile extends StatelessWidget {
@@ -36,6 +37,33 @@ class CustomCheckboxListTile extends StatelessWidget {
           value: value,
           onChanged: onChanged,
         ),
+      ),
+    );
+  }
+}
+
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final Widget title;
+  final Widget? actions;
+
+  const CustomAppBar({super.key, required this.title, this.actions});
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      title: title,
+      leading: Theme(
+        data: Theme.of(context).copyWith(
+          iconTheme: const IconThemeData(color: colorBrandingColor1),
+        ),
+        child: GestureDetector(
+            child: const Icon(Icons.arrow_back),
+            onTap: () {
+              Navigator.pop(context);
+            }),
       ),
     );
   }

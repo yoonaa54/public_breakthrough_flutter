@@ -1,5 +1,6 @@
 import 'package:js/js.dart';
 import 'package:flutter/material.dart';
+import 'package:my_flutter_app/common/custom_widgets.dart';
 import 'package:my_flutter_app/common/variables_constants.dart';
 import 'dart:ui_web' as ui;
 import 'package:universal_html/html.dart' as html;
@@ -10,11 +11,11 @@ class CalendlyPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Book me for an interview!'),
+    return const Scaffold(
+      appBar: CustomAppBar(
+        title: Text('Book me for an interview!'),
       ),
-      body: const Center(
+      body: Center(
         child: CalendlyWidget(),
       ),
     );

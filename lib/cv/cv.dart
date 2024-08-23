@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_flutter_app/common/custom_widgets.dart';
 
 class CVPage extends StatelessWidget {
   final String name;
@@ -23,7 +24,7 @@ class CVPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: CustomAppBar(
         title: Text(name),
       ),
       body: Padding(
