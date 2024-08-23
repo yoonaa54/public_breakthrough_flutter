@@ -4,8 +4,9 @@ import 'package:my_flutter_app/common/variables.dart';
 import 'package:my_flutter_app/common/variables_constants.dart';
 import 'package:my_flutter_app/course/course_activities.dart';
 
-import 'package:my_flutter_app/cv/cv.dart';
+// import 'package:my_flutter_app/cv/cv.dart';
 import 'package:my_flutter_app/cv/cv_html.dart';
+import 'package:my_flutter_app/cv/cv.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,26 +23,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         // This is the theme of your application.
         //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
         // try changing the seedColor in the colorScheme below to Colors.green
         // and then invoke "hot reload" (save your changes or press the "hot
         // reload" button in a Flutter-supported IDE, or press "r" if you used
         // the command line to start the app).
         //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        scaffoldBackgroundColor: scaffoldBackgroundColor,
-        textTheme: textTheme(
-          Theme.of(context).textTheme.apply(
-                bodyColor: textThemeBodyColor,
-                displayColor: textThemeDisplayColor,
-              ),
-        ),
+        cardColor: colorSchemeSurface,
         colorScheme: ColorScheme.fromSeed(
           seedColor: colorSchemeSeedColor,
           brightness: colorSchemeBrightness,
@@ -64,6 +51,14 @@ class MyApp extends StatelessWidget {
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
           backgroundColor: colorFloatingActionButtonBackground,
           foregroundColor: colorFloatingActionButtonForeground,
+        ),
+        scaffoldBackgroundColor: scaffoldBackgroundColor,
+
+        textTheme: textTheme(
+          Theme.of(context).textTheme.apply(
+                bodyColor: textThemeBodyColor,
+                displayColor: textThemeDisplayColor,
+              ),
         ),
         useMaterial3: true,
       ),
@@ -135,9 +130,23 @@ class _MyHomePageState extends State<MyHomePage> {
                     break;
                   case 'Option2':
                     Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const CVPage()));
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const CVPage(
+                          name: 'John Doe',
+                          contactInfo: 'john.doe@example.com | 555-555-5555',
+                          objective:
+                              'To obtain a challenging role in software development.',
+                          education:
+                              'Bachelor of Science in Computer Science, XYZ University',
+                          workExperience:
+                              'Software Developer, ABC Company (2018-Present)',
+                          skills: 'Java, Python, C++, JavaScript',
+                          achievements:
+                              'Recipient of the XYZ University Computer Science Award',
+                        ),
+                      ),
+                    );
                     break;
                   case 'Option3':
                     Navigator.push(
@@ -182,6 +191,16 @@ class _MyHomePageState extends State<MyHomePage> {
       // TODO: if you want to default to a different page, comment out all the "body"
       // section below and replace it with, eg:
       // body: const CalendlyWidget(),
+      // or:
+      // body: const CVTemplate(
+      //   name: 'John Doe',
+      //   contactInfo: 'john.doe@example.com | 555-555-5555',
+      //   objective: 'To obtain a challenging role in software development.',
+      //   education: 'Bachelor of Science in Computer Science, XYZ University',
+      //   workExperience: 'Software Developer, ABC Company (2018-Present)',
+      //   skills: 'Java, Python, C++, JavaScript',
+      //   achievements: 'Recipient of the XYZ University Computer Science Award',
+      // ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
