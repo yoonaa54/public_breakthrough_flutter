@@ -5,10 +5,8 @@ import 'package:my_flutter_app/common/variables.dart';
 import 'package:my_flutter_app/common/variables_constants.dart';
 import 'package:my_flutter_app/course/course_activities.dart';
 
-// import 'package:my_flutter_app/cv/cv.dart';
 import 'package:my_flutter_app/cv/cv_html.dart';
 import 'package:my_flutter_app/cv/cv.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(const MyApp());
