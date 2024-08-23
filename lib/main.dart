@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:my_flutter_app/calendar_booking/calendly.dart';
 import 'package:my_flutter_app/common/variables.dart';
@@ -7,25 +6,8 @@ import 'package:my_flutter_app/course/course_activities.dart';
 
 import 'package:my_flutter_app/cv/cv.dart';
 import 'package:my_flutter_app/cv/cv_html.dart';
-// import 'package:js/js.dart';
-
-import 'dart:ui_web' as ui;
-// ignore: avoid_web_libraries_in_flutter
-import 'dart:html' as html;
-
-// @JS('initCalendlyWidget')
-// external void initCalendlyWidget();
 
 void main() {
-  // if (kIsWeb) {
-  //   ui.platformViewRegistry.registerViewFactory(
-  //     'calendly-html',
-  //     (int viewId) => html.DivElement()
-  //       ..id = 'calendly-container'
-  //       ..style.height = '80%'
-  //       ..style.width = '80%',
-  //   );
-  // }
   runApp(const MyApp());
 }
 
