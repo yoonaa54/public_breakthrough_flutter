@@ -17,7 +17,7 @@ List<String> assetsCourseActivities = [
 // List<String> textOfCourseActivities = List.empty(growable: true);
 
 Map<String, Map<String, List<String>>> mapCourseActivities = {
-  'Welcome to Week 9!': {
+  'Day 1 - Welcome to Week 9!': {
     'buttonCopyContent': ['echo "hello from the terminal"'],
     'buttonCopyText': [
       'Click to copy `echo "hello from the terminal"` to Clipboard'
@@ -30,11 +30,14 @@ Map<String, Map<String, List<String>>> mapCourseActivities = {
     ],
   },
   'Check: all the things': {
-    'buttonCopyContent': [],
-    'buttonCopyText': [],
+    'buttonCopyContent': ['NIXPKGS_ALLOW_UNFREE=1 nix-shell'],
+    'buttonCopyText': [
+      'Click to copy `NIXPKGS_ALLOW_UNFREE=1 nix-shell` to Clipboard'
+    ],
   },
   'Check: is Flutter installed and working?': {
     'buttonCopyContent': [
+      'NIXPKGS_ALLOW_UNFREE=1 nix-shell',
       'pwd',
       'flutter doctor',
       'flutter create my_first_flutter_app',
@@ -42,6 +45,7 @@ Map<String, Map<String, List<String>>> mapCourseActivities = {
       'flutter run -d chrome'
     ],
     'buttonCopyText': [
+      'Click to copy `NIXPKGS_ALLOW_UNFREE=1 nix-shell` to Clipboard',
       'Click to copy `pwd` to Clipboard',
       'Click to copy `flutter doctor` to Clipboard',
       'Click to copy `flutter create my_first_flutter_app` to Clipboard',
@@ -50,21 +54,32 @@ Map<String, Map<String, List<String>>> mapCourseActivities = {
     ],
   },
   'Check: are git & GitHub installed, configured and working?': {
-    'buttonCopyContent': [],
-    'buttonCopyText': [],
+    'buttonCopyContent': ['git --version'],
+    'buttonCopyText': ['Click to copy `git --version` to Clipboard'],
   },
   'Check: is VSCode installed and working?': {
-    'buttonCopyContent': [],
-    'buttonCopyText': [],
-  },
-  'Exploration: VSCode plugins': {
-    'buttonCopyContent': [],
-    'buttonCopyText': [],
+    'buttonCopyContent': [
+      'code',
+      'code --install-extension codeium.codeium',
+      'code --install-extension dart-code.flutter@3.92.0',
+    ],
+    'buttonCopyText': [
+      'Click to copy `code` to Clipboard',
+      'Click to copy `code --install-extension codeium.codeium` to Clipboard',
+      'Click to copy `code --install-extension dart-code.flutter@3.92.0` to Clipboard',
+    ],
   },
   'Implementation: Website Deployment': {
-    'buttonCopyContent': [],
-    'buttonCopyText': [],
+    'buttonCopyContent': [
+      'make test',
+      'make deploy OUTPUT=cv_demo',
+    ],
+    'buttonCopyText': [
+      'Click to copy `make test` to Clipboard',
+      'Click to copy `make deploy OUTPUT=cv_demo` to Clipboard'
+    ],
   },
-  'HTML CV creation': {},
+  'Exploration: VSCode plugins': {},
+  'Day 2 - HTML CV creation': {},
   'Calandly integration': {},
 };

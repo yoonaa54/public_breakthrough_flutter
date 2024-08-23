@@ -1,17 +1,18 @@
 ## git & GitHub
 
-To complete this activity successfully:
+To complete this activity successfully make sure:
 
 - `git --version` returns something like:
 ```dart
     git version 2.45.2
 ```
+    The exact version number should not matter.
 
-- Visiting [GitHub.com](https://github.com) will show you as logged in, using the account you created in Activity 1
+- Visiting [GitHub.com](https://github.com) shows you as logged in, using the account you created in Activity 1
 
-- You're able to [fork](https://github.com/thatdogmachine/public_breakthrough_flutter) so that you have your own copy of the repo
+- You're able to [fork](https://github.com/thatdogmachine/public_breakthrough_flutter) so that you have your own copy of the repo in your Github account
 
-Once you have successfully created a fork of this repo at [https://github.com/{username}/public_breakthrough_flutter](https://github.com/{username}/public_breakthrough_flutter) you have completed all the mandatory steps in this activity, and can mark it as complete and move on to the next one.
+Once you have successfully created a fork of this repo at [https://github.com/{username}/public_breakthrough_flutter](https://github.com/{username}/public_breakthrough_flutter) you have completed all the mandatory steps in this activity, and can mark it as complete and move on to the next one. But, if you are ahead of the group or reviewing after the class, consider:
 
 
 ## Bonus / Extra activities

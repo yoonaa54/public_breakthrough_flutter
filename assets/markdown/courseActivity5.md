@@ -1,12 +1,12 @@
 ## VSCode & Extensions
 
-From a terminal, attempt to launch VSCode:
+From a command prompt or terminal, attempt to launch VSCode:
 
 ```dart
     code
 ```
 
-After you have confirmed you have it installed, make sure you have the following Extensions as well:
+After you have confirmed you have it installed, make sure you have the following Extensions installed as well:
 
 ```dart
     code --install-extension codeium.codeium

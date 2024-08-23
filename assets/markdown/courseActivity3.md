@@ -7,7 +7,7 @@ If you installed with nix, make sure you already did:
 ```dart
     NIXPKGS_ALLOW_UNFREE=1 nix-shell
 ```
-in your terminal, then:
+in your terminal, then type:
 
 ```dart
     pwd
@@ -19,6 +19,6 @@ in your terminal, then:
     flutter run -d chrome
 ```
 
-Remember to scroll down and copy/paste if you have difficulty reading / typing the commands.
+Remember to scroll down and copy / paste if you have difficulty reading / typing the commands.
 
-Once you have seen the counter app load in your browser, mark this action complete and move on to the next one.
+Once you have seen the counter app load in your browser, mark this activity complete and move on to the next one.
