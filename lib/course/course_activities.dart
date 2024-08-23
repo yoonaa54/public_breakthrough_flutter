@@ -71,7 +71,7 @@ class CourseActivitiesPageState extends State<CourseActivitiesPage> {
   Widget build(BuildContext context) {
     // _loadMarkdownData();
     return Scaffold(
-      appBar: AppBar(
+      appBar: CustomAppBar(
         title: courseActivitiesPageTitle,
       ),
       body: Scrollbar(
