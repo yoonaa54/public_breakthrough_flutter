@@ -1,10 +1,10 @@
-// import 'package:js/js.dart';
 import 'package:js/js.dart';
 import 'package:flutter/material.dart';
 import 'package:my_flutter_app/common/variables_constants.dart';
 import 'dart:ui_web' as ui;
 import 'package:universal_html/html.dart' as html;
 
+// TODO: make this compilable for other non-web platforms
 class CalendlyPage extends StatelessWidget {
   const CalendlyPage({super.key});
 
