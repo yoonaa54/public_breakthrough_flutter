@@ -12,7 +12,7 @@ class CalendlyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Create Your CV'),
+        title: const Text('Book me for an interview!'),
       ),
       body: const Center(
         child: CalendlyWidget(),
