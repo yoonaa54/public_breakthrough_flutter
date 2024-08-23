@@ -24,7 +24,8 @@ const colorFloatingActionButtonForeground = Colors.black;
 const iconPopupMenuItem = Icons
     .menu; // remember from pubspec.yaml we can see icons at: https://fonts.google.com/icons
 const imageBranding1 = 'assets/images/BT+Logo+Grey+Colour@2x.png';
-const scaffoldBackgroundColor = Colors.black; // background color for the app
+const scaffoldBackgroundColor =
+    Colors.white; // Colors.black; // background color for the app
 const textAppPageTitle = 'Breakthrough CV Builder';
 const textCounterDescription = 'What`s your high score?';
 const textIncrementCounterToolTip = 'Increment';

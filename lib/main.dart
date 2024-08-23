@@ -1,12 +1,31 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:my_flutter_app/calendar_booking/calendly.dart';
 import 'package:my_flutter_app/common/variables.dart';
 import 'package:my_flutter_app/common/variables_constants.dart';
 import 'package:my_flutter_app/course/course_activities.dart';
 
 import 'package:my_flutter_app/cv/cv.dart';
 import 'package:my_flutter_app/cv/cv_html.dart';
+// import 'package:js/js.dart';
+
+import 'dart:ui_web' as ui;
+// ignore: avoid_web_libraries_in_flutter
+import 'dart:html' as html;
+
+// @JS('initCalendlyWidget')
+// external void initCalendlyWidget();
 
 void main() {
+  // if (kIsWeb) {
+  //   ui.platformViewRegistry.registerViewFactory(
+  //     'calendly-html',
+  //     (int viewId) => html.DivElement()
+  //       ..id = 'calendly-container'
+  //       ..style.height = '80%'
+  //       ..style.width = '80%',
+  //   );
+  // }
   runApp(const MyApp());
 }
 
@@ -144,6 +163,12 @@ class _MyHomePageState extends State<MyHomePage> {
                         MaterialPageRoute(
                             builder: (context) => const CvHtmlPage()));
                     break;
+                  case 'Option4':
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const CalendlyPage()));
+                    break;
                 }
               },
               itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
@@ -159,6 +184,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   value: 'Option3',
                   child: Text(textPopupMenuItem3),
                 ),
+                const PopupMenuItem<String>(
+                  value: 'Option4',
+                  child: Text(textPopupMenuItem4),
+                ),
               ],
               icon: const Padding(
                   padding: EdgeInsets.only(left: 8.0),
@@ -170,64 +199,64 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       // TODO: if you want to default to a different page, comment out all the "body"
       // section below and replace it with, eg:
-      // body: const CvHtmlPage(),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: SingleChildScrollView(
-          child: Column(
-            // Column is also a layout widget. It takes a list of children and
-            // arranges them vertically. By default, it sizes itself to fit its
-            // children horizontally, and tries to be as tall as its parent.
-            //
-            // Column has various properties to control how it sizes itself and
-            // how it positions its children. Here we use mainAxisAlignment to
-            // center the children vertically; the main axis here is the vertical
-            // axis because Columns are vertical (the cross axis would be
-            // horizontal).
-            //
-            // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-            // action in the IDE, or press "p" in the console), to see the
-            // wireframe for each widget.
-            mainAxisAlignment: MainAxisAlignment
-                .start, // use start instead of center to pull to the top
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(top: 24.0, bottom: 24.0),
-                child: SizedBox(
-                  width: 100,
-                  height: 100,
-                  child: Image.asset(imageBranding1),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.01),
-                child: SizedBox(
-                  width: 600,
-                  height: 600,
-                  child: Image.asset(
-                      'assets/images/3D+Rendered+image+of+technology+change.jpeg'),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height *
-                        0.1), // use MediaQuery to make reactive
-                child: const Text(textCounterDescription),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 8.0),
-                child: Text(
-                  // TODO: how does this work? how to get the best score?
-                  '$_counter',
-                  style: Theme.of(context).textTheme.headlineMedium,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
+      body: const CalendlyWidget(),
+      // body: Center(
+      //   // Center is a layout widget. It takes a single child and positions it
+      //   // in the middle of the parent.
+      //   child: SingleChildScrollView(
+      //     child: Column(
+      //       // Column is also a layout widget. It takes a list of children and
+      //       // arranges them vertically. By default, it sizes itself to fit its
+      //       // children horizontally, and tries to be as tall as its parent.
+      //       //
+      //       // Column has various properties to control how it sizes itself and
+      //       // how it positions its children. Here we use mainAxisAlignment to
+      //       // center the children vertically; the main axis here is the vertical
+      //       // axis because Columns are vertical (the cross axis would be
+      //       // horizontal).
+      //       //
+      //       // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
+      //       // action in the IDE, or press "p" in the console), to see the
+      //       // wireframe for each widget.
+      //       mainAxisAlignment: MainAxisAlignment
+      //           .start, // use start instead of center to pull to the top
+      //       children: <Widget>[
+      //         Padding(
+      //           padding: const EdgeInsets.only(top: 24.0, bottom: 24.0),
+      //           child: SizedBox(
+      //             width: 100,
+      //             height: 100,
+      //             child: Image.asset(imageBranding1),
+      //           ),
+      //         ),
+      //         Padding(
+      //           padding: EdgeInsets.only(
+      //               top: MediaQuery.of(context).size.height * 0.01),
+      //           child: SizedBox(
+      //             width: 600,
+      //             height: 600,
+      //             child: Image.asset(
+      //                 'assets/images/3D+Rendered+image+of+technology+change.jpeg'),
+      //           ),
+      //         ),
+      //         Padding(
+      //           padding: EdgeInsets.only(
+      //               top: MediaQuery.of(context).size.height *
+      //                   0.1), // use MediaQuery to make reactive
+      //           child: const Text(textCounterDescription),
+      //         ),
+      //         Padding(
+      //           padding: const EdgeInsets.only(top: 8.0),
+      //           child: Text(
+      //             // TODO: how does this work? how to get the best score?
+      //             '$_counter',
+      //             style: Theme.of(context).textTheme.headlineMedium,
+      //           ),
+      //         ),
+      //       ],
+      //     ),
+      //   ),
+      // ),
 
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
