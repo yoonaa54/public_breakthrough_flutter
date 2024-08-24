@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:my_flutter_app/common/custom_widgets.dart';
 import 'package:my_flutter_app/common/variables_constants.dart';
 import 'dart:ui_web' as ui;
+// import 'package:webview_flutter/webview_flutter.dart';
+// import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 import 'package:universal_html/html.dart' as html;
 
 // TODO: make this compilable for other non-web platforms
@@ -15,6 +17,10 @@ class CalendlyPage extends StatelessWidget {
       appBar: CustomAppBar(
         title: Text('Book me for an interview!'),
       ),
+      // body: WebView(
+      //   initialUrl: calendlyUserUrl,
+      //   javascriptMode: JavascriptMode.unrestricted,
+      // ),
       body: Center(
         child: CalendlyWidget(),
       ),

@@ -34,6 +34,8 @@ dependencies:
   # but more (some are paid) are available at: https://fontawesome.com/icons
   # font_awesome_flutter: ^10.7.0
   flutter_markdown: ^0.7.3
+  # webview_flutter: ^4.8.0
+  # webview_flutter_wkwebview: ^3.14.0
   google_fonts: ^6.2.1
   js: 0.7.1
   path_provider: ^2.1.4
