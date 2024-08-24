@@ -12,6 +12,8 @@ List<String> assetsCourseActivities = [
   'assets/markdown/courseActivity8.md',
   'assets/markdown/courseActivity9.md',
   'assets/markdown/courseActivity10.md',
+  'assets/markdown/courseActivity11.md',
+  'assets/markdown/courseActivity12.md',
 ];
 // TODO: (ADVANCED) If we define this list here, it changes the behaviour
 // and on second pass we get a RangeError
@@ -84,4 +86,6 @@ Map<String, Map<String, List<String>>> mapCourseActivities = {
   'Day 2 - Implementation: HTML CV creation': {},
   'Implementation: Calendly integration': {},
   'Implementation: Flutter CV creation': {},
+  'Implementation: Making changes': {},
+  'Exploration: Low-code with FlutterFlow': {},
 };

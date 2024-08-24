@@ -1,6 +1,6 @@
-# Calendly integration
+## Calendly integration
 
-It's expected at this point you already created a Calendly user. If you haven't, go back to Activity 1 for instructions how to do that, then return here.
+It's expected at this point you already created a Calendly user account. If you haven't, go back to Activity 1 for instructions how to do that, then return here.
 
 - Modify `calendlyUserName` in `variabless_constants.dart` to match your Calendly username.
 

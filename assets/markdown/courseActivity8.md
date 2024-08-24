@@ -1,7 +1,8 @@
-# HTML CV creation
+## HTML CV creation
 
 
-// TODO: need basic html reference
+[HTML Basics](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics)
+
 
 suggest not to spend long here - rather spend ~10 - 25 mins and then move on
 
