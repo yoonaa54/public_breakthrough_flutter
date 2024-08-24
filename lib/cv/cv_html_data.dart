@@ -6,6 +6,8 @@
 // scaffoldBackgroundColor
 // is defined in variables_constants.dart and change it
 
+import 'package:my_flutter_app/common/variables_constants.dart';
+
 String htmlContent1 = """
 <body style="background-color: white;">
     <h1 style='color: white; font-size:50px; 
@@ -34,6 +36,6 @@ String htmlContent1 = """
 
 String htmlContent2 = """
 <body>
-  <p><a href="https://soundcloud.com">Visit my music site</a></p>
+  <p><a href="$calendlyUserUrl">Book me for an interview</a></p>
 </body>
 """;

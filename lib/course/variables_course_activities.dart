@@ -11,8 +11,9 @@ List<String> assetsCourseActivities = [
   'assets/markdown/courseActivity7.md',
   'assets/markdown/courseActivity8.md',
   'assets/markdown/courseActivity9.md',
+  'assets/markdown/courseActivity10.md',
 ];
-// TODO: If we define this list here, it changes the behaviour
+// TODO: (ADVANCED) If we define this list here, it changes the behaviour
 // and on second pass we get a RangeError
 // List<String> textOfCourseActivities = List.empty(growable: true);
 
@@ -80,6 +81,7 @@ Map<String, Map<String, List<String>>> mapCourseActivities = {
     ],
   },
   'Exploration: VSCode plugins': {},
-  'Day 2 - HTML CV creation': {},
-  'Calandly integration': {},
+  'Day 2 - Implementation: HTML CV creation': {},
+  'Implementation: Calendly integration': {},
+  'Implementation: Flutter CV creation': {},
 };

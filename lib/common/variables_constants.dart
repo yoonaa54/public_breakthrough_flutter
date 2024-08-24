@@ -1,12 +1,15 @@
-// We can read more about dart variables at: https://dart.dev/language/variables
+// TODO: We can read more about dart variables at: https://dart.dev/language/variables
 
-// Why do we use constants?
+// TODO: Why do we use constants?
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-// Why do you need to reload the app for const changes to be visible?
+// TODO: Why do you need to reload the app for const changes to be visible?
 const calendlyUserName = 'ewan-nisbet';
+const calendlyUserUrl =
+    'https://calendly.com/$calendlyUserName?background_color=1a1a1a&text_color=ffffff&primary_color=ffce00';
+// TODO: map between all the different color formats automatically
 const colorSchemeSeedColor = Colors.black;
 const colorSchemeBrightness = Brightness.dark;
 const colorSchemePrimary = Colors.black;

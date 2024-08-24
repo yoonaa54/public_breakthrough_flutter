@@ -46,6 +46,9 @@ We need to install some software to be able to complete the course. There are a 
 - [https://calendly.com/signup](https://calendly.com/signup)
     - You will integrate this Software as a Service (SaaS) to provide a bookable calendar system
     - Create a free account
+    - Chose `Use on my own` when offered `on my own` vs `teams`
+    - Click your way through the onboarding / initial setup steps
+    - Find your username - it's likely firstname-lastname & should be on the https://calendly.com/event_types/user/me page
     - Make a note of your Calendly **username** & **password**, you will need them later
 
 Now mark this activity complete and move on to the next one.

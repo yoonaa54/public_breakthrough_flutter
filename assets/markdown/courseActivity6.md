@@ -45,3 +45,4 @@ Next we'll step through the parts of that guide we still need to implement:
 
 Your site should now be available at [https://{username}.github.io/cv_demo](https://{username}.github.io/cv_demo) - assuming you did use the recommended `cv_demo` as the name for the second repo we created.
 
+Once you can access that site in your browser, mark this activity complete and move on to the next one.

@@ -12,3 +12,5 @@ After you have confirmed you have it installed, make sure you have the following
     code --install-extension codeium.codeium
     code --install-extension dart-code.flutter@3.92.0
 ```
+
+Now mark this activity complete and move on to the next one.

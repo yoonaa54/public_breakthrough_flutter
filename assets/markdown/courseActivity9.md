@@ -1,11 +1,11 @@
-# Calandly integration
+# Calendly integration
 
-Sign up: at https://calendly.com/signup
+It's expected at this point you already created a Calendly user. If you haven't, go back to Activity 1 for instructions how to do that, then return here.
 
-Chose `Use on my own` when offered `on my own` vs `teams`
+- Modify `calendlyUserName` in `variabless_constants.dart` to match your Calendly username.
 
-Click your way through the onboarding / initial setup steps
+- Navigate to the `Book me for an interview` page in your app
 
-Find your username - is likely firstname-lastname & should be on the https://calendly.com/event_types/user/me page
+- Attempt to book an interview with yourself - check if you receive the notification & confirmation?
 
-Modify `calendlyUserName` in `variabless_constants.dart` to match your username.
+Now mark this activity complete and move on to the next one.

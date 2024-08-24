@@ -41,8 +41,7 @@ class CalendlyWidgetState extends State<CalendlyWidget> {
       return html.DivElement()
         ..className = 'calendly-inline-widget'
         ..dataset = {
-          'url':
-              'https://calendly.com/$calendlyUserName?background_color=1a1a1a&text_color=ffffff&primary_color=ffce00'
+          'url': calendlyUserUrl
           // TODO: how could these colours be better configured?
           // Hint: variables_constants.dart
         }
