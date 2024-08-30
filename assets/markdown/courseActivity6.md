@@ -35,7 +35,6 @@ Next we'll step through the parts of that guide we still need to implement:
     where {username} is the Github username you created in Activity 1
 
 
-// TODO: Need to clone locally - do it before switching attention to new/other (deploy) repo?
 
 3. [Create a new __public__ repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository) or `repo`. The exact name is not too important, but for ease of following these instructions, consider using `cv_demo`
 4. In a terminal run the command `make deploy OUTPUT=cv_demo`

@@ -1,5 +1,8 @@
 ## Making changes
 
+Here is a collection of hints to help you modify this code to your liking.
+
+You might also find supporting help searching this repo for "TODO:" entries
 
 ### **Changing the default app page**
 
