@@ -138,8 +138,8 @@ class CustomExpansionPanelListState extends State<CustomExpansionPanelList> {
                           right: MediaQuery.of(context).size.width > 1400
                               ? MediaQuery.of(context).size.width * 0.24
                               : 4.0,
-                          bottom: 100.0 *
-                              (widget.buttonCopyTextList?.length ?? 0.2),
+                          bottom:
+                              50.0 * (widget.buttonCopyTextList?.length ?? 0.2),
                           // ?? needs to be low or we may not display
                           // text when there are no buttons
                         ),
@@ -208,7 +208,7 @@ class CustomExpansionPanelListState extends State<CustomExpansionPanelList> {
           onPressed: () async {
             await Clipboard.setData(ClipboardData(text: buttonCopyContent));
             if (mounted) {
-              // TODO: investigate microtask further
+              // TODO: (ADVANCED) investigate microtask further
               Future.microtask(
                 () {
                   ScaffoldMessenger.of(context).showSnackBar(

@@ -24,8 +24,9 @@ class CourseActivitiesPageState extends State<CourseActivitiesPage> {
   @override
   void initState() {
     if (textOfCourseActivities.isEmpty) {
-      // TODO: To understand these next 3 lines, make them a comment
-      // with // and explore what happens
+      // TODO: To understand the 3 lines after this comment, convert
+      // them a comment with // and explore what happens when you
+      // attempt to explore the course activities
       textOfCourseActivities =
           List<String>.filled(assetsCourseActivities.length, '');
       activitiesCompleted =
