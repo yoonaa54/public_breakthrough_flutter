@@ -15,9 +15,8 @@ We need to install some software to be able to complete the course. There are a 
 
 ### Install with Nix
 
-// TODO: set final tag here:
 
-- Download and extract the source code from this repo [https://github.com/thatdogmachine/public_breakthrough_flutter/releases/tag/v0.0.2](https://github.com/thatdogmachine/public_breakthrough_flutter/releases/tag/v0.0.2)
+- Download and extract the source code from this repo [https://github.com/thatdogmachine/public_breakthrough_flutter/releases/tag/v1.0.1](https://github.com/thatdogmachine/public_breakthrough_flutter/releases/tag/v1.0.1)
 - Install Nix: [https://nix.dev/install-nix](https://nix.dev/install-nix)
 - From a terminal / comand prompt run: NIXPKGS_ALLOW_UNFREE=1 nix-shell - see the button below to copy the text to your Clipboard.
 
