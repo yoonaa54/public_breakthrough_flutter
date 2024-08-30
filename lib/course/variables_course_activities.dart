@@ -57,8 +57,20 @@ Map<String, Map<String, List<String>>> mapCourseActivities = {
     ],
   },
   'Check: are git & GitHub installed, configured and working?': {
-    'buttonCopyContent': ['git --version'],
-    'buttonCopyText': ['Click to copy `git --version` to Clipboard'],
+    'buttonCopyContent': [
+      'git --version',
+      'git clone https://github.com/<your-github-username>/public_breakthrough_flutter.git',
+      'git add mynewfile.txt',
+      'git commit -m "added mynewfile.txt"',
+      'git push',
+    ],
+    'buttonCopyText': [
+      'Click to copy `git --version` to Clipboard',
+      'Click to copy `git clone https://github.com/<your-github-username>/public_breakthrough_flutter.git` to Clipboard',
+      'Click to copy `git add mynewfile.txt` to Clipboard',
+      'Click to copy `git commit -m "added mynewfile.txt"` to Clipboard',
+      'Click to copy `git push` to Clipboard',
+    ],
   },
   'Check: is VSCode installed and working?': {
     'buttonCopyContent': [

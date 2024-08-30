@@ -12,6 +12,21 @@ To complete this activity successfully make sure:
 
 - You're able to [fork](https://github.com/thatdogmachine/public_breakthrough_flutter) so that you have your own copy of the repo in your Github account
 
+- You're able to clone the forked repo locally. Use Github Desktop or
+```dart
+    git clone https:
+```
+
+- You're able to push changes from your local copy back to GitHub. Use Github Desktop or
+```dart
+    code mynewfile.txt
+    # edit and save the file - add 'hello' or similar
+    git add mynewfile.txt
+    git commit -m "my first commit"
+    git push
+
+```
+
 Once you have successfully created a fork of this repo at [https://github.com/{username}/public_breakthrough_flutter](https://github.com/{username}/public_breakthrough_flutter) you have completed all the mandatory steps in this activity, and can mark it as complete and move on to the next one. But, if you are ahead of the group or reviewing after the class, consider:
 
 // TODO: decide if we git clone here
