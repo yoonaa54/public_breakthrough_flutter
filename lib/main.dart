@@ -229,7 +229,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: const EdgeInsets.only(top: 24.0, bottom: 24.0),
                 child: GestureDetector(
                   onTap: () async {
-                    const url = 'https://www.wearebreakthrough.org/';
+                    const url = 'https://www.wearebreakthrough.co.uk/';
                     await launchURL(url);
                   },
                   child: SizedBox(
@@ -244,7 +244,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     top: MediaQuery.of(context).size.height * 0.01),
                 child: GestureDetector(
                   onTap: () async {
-                    const url = 'https://www.wearebreakthrough.org/';
+                    const url = 'https://www.wearebreakthrough.co.uk/';
                     await launchURL(url);
                   },
                   child: SizedBox(

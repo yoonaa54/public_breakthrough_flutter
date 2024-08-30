@@ -1,6 +1,6 @@
 # my_flutter_app
 
-A new Flutter project for [Breakthrough](https://www.wearebreakthrough.org) candidates
+A new Flutter project for [Breakthrough](https://www.wearebreakthrough.co.uk) candidates
 
 ## Steps used to create
 
