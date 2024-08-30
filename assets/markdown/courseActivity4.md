@@ -14,6 +14,9 @@ To complete this activity successfully make sure:
 
 Once you have successfully created a fork of this repo at [https://github.com/{username}/public_breakthrough_flutter](https://github.com/{username}/public_breakthrough_flutter) you have completed all the mandatory steps in this activity, and can mark it as complete and move on to the next one. But, if you are ahead of the group or reviewing after the class, consider:
 
+// TODO: decide if we git clone here
+// TODO: test git config setup?
+
 
 ## Bonus / Extra activities
 
