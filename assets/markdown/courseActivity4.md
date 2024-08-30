@@ -27,11 +27,14 @@ To complete this activity successfully make sure:
 
 ```
 
-Once you have successfully created a fork of this repo at [https://github.com/{username}/public_breakthrough_flutter](https://github.com/{username}/public_breakthrough_flutter) you have completed all the mandatory steps in this activity, and can mark it as complete and move on to the next one. But, if you are ahead of the group or reviewing after the class, consider:
+Did you succeed, or were you prompted to configure your name & email address?
 
-// TODO: decide if we git clone here
-// TODO: test git config setup?
+[Does this help?](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration)
 
+
+Once you have successfully created a fork of this repo at [https://github.com/{username}/public_breakthrough_flutter](https://github.com/{username}/public_breakthrough_flutter), and pushed a commit to GitHub, you have completed all the mandatory steps in this activity.
+
+You can now mark this activity as complete and move on to the next one. But, if you are ahead of the group or reviewing after the class, consider also:
 
 ## Bonus / Extra activities
 
