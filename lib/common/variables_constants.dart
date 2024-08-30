@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 // TODO: Why do you need to reload the app for const changes to be visible?
-const calendlyUserName = 'ewan-nisbet';
+const calendlyUserName = '<your-calendly-username>';
 const calendlyUserUrl =
     'https://calendly.com/$calendlyUserName?background_color=1a1a1a&text_color=ffffff&primary_color=ffce00';
 // TODO: map between all the different color formats automatically
